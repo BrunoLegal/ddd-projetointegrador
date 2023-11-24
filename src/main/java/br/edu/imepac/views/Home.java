@@ -26,6 +26,10 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jProgressBar1 = new javax.swing.JProgressBar();
         jLabel1 = new javax.swing.JLabel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -34,7 +38,26 @@ public class Home extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        jMenu9 = new javax.swing.JMenu();
+        jMenu10 = new javax.swing.JMenu();
+        jMenu11 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -46,7 +69,6 @@ public class Home extends javax.swing.JFrame {
         jMenuBar2.setToolTipText("");
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/imepac/ddd/imagem4.png"))); // NOI18N
-        jMenu4.setText("File");
         jMenu4.setMaximumSize(new java.awt.Dimension(30, 32767));
 
         jMenu6.setText("Agendamento");
@@ -62,10 +84,28 @@ public class Home extends javax.swing.JFrame {
         jMenu3.setText("jMenu3");
         jMenu4.add(jMenu3);
 
+        jMenu7.setText("jMenu7");
+        jMenu4.add(jMenu7);
+
+        jMenu8.setText("jMenu8");
+        jMenu4.add(jMenu8);
+
+        jMenu9.setText("jMenu9");
+        jMenu4.add(jMenu9);
+
+        jMenu10.setText("jMenu10");
+        jMenu4.add(jMenu10);
+
+        jMenu11.setText("jMenu11");
+        jMenu4.add(jMenu11);
+
         jMenuBar2.add(jMenu4);
 
-        jMenu1.setText("jMenu1");
+        jMenu1.setText("                                                                                                         ");
         jMenuBar2.add(jMenu1);
+
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/imepac/views/suporteimage2.png"))); // NOI18N
+        jMenuBar2.add(jMenu5);
 
         setJMenuBar(jMenuBar2);
 
@@ -111,11 +151,21 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
