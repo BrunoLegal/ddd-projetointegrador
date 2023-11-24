@@ -6,7 +6,7 @@ package br.edu.imepac.ddd;
 
 /**
  *
- * @author visitante38
+ * @author visitante34
  */
 public class Home extends javax.swing.JFrame {
 
@@ -26,72 +26,49 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
+        jMenuBar2 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
-
-        jMenuItem1.setText("jMenuItem1");
-
-        jMenuItem2.setText("jMenuItem2");
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Agendamento");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 130, 40));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/imepac/ddd/imagemback4.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 280));
+        getContentPane().add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\TEMP.IMEPACAD.000\\Downloads\\baixados.jpg")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, -3, 460, 280));
+        jMenuBar2.setBackground(new java.awt.Color(0, 255, 255));
+        jMenuBar2.setToolTipText("");
 
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/imepac/ddd/imagem4.png"))); // NOI18N
+        jMenu4.setText("File");
+        jMenu4.setMaximumSize(new java.awt.Dimension(30, 32767));
 
-        jMenu1.setText("Menu");
+        jMenu6.setText("Agendamento");
 
-        jMenu3.setText("Agendamento");
+        jMenuItem2.setText("jMenuItem2");
+        jMenu6.add(jMenuItem2);
 
-        jMenuItem3.setText("jMenuItem3");
-        jMenu3.add(jMenuItem3);
+        jMenu4.add(jMenu6);
 
-        jMenuItem4.setText("jMenuItem4");
-        jMenu3.add(jMenuItem4);
+        jMenu2.setText("jMenu2");
+        jMenu4.add(jMenu2);
 
-        jMenu1.add(jMenu3);
+        jMenu3.setText("jMenu3");
+        jMenu4.add(jMenu3);
 
-        jMenu6.setText("jMenu6");
+        jMenuBar2.add(jMenu4);
 
-        jMenuItem7.setText("jMenuItem7");
-        jMenu6.add(jMenuItem7);
+        jMenu1.setText("jMenu1");
+        jMenuBar2.add(jMenu1);
 
-        jMenu1.add(jMenu6);
-
-        jMenu5.setText("jMenu5");
-
-        jMenuItem8.setText("jMenuItem8");
-        jMenu5.add(jMenuItem8);
-
-        jMenu1.add(jMenu5);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        jMenu4.setText("jMenu4");
-        jMenuBar1.add(jMenu4);
-
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(jMenuBar2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -132,20 +109,14 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     // End of variables declaration//GEN-END:variables
 }
