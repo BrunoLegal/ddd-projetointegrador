@@ -8,6 +8,7 @@ import br.edu.imepac.daos.EspecialidadeDao;
 import br.edu.imepac.entidades.Especialidade;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -24,6 +25,15 @@ public class EspecialidadeService {
 
     public int atualizarEspecialidade(Especialidade esp) throws SQLException {
         return this.especialidadeDao.update(esp);
+    }
+    public int deletarEspecialidade(Long id) throws SQLException {
+        return this.especialidadeDao.delete(id);
+    }
+    public Especialidade mostrarEspecialidade(Long id) throws SQLException {
+        return this.especialidadeDao.read(id);
+    }
+    public ArrayList mostrarTodos() throws SQLException {
+        return this.especialidadeDao.findAll();
     }
 
 }
