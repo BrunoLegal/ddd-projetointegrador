@@ -22,7 +22,7 @@ Data_Nascimento DATE not null
 );
 
 
-create table Especiabilidades(
+create table Especialidades(
 Codigo_Especialidade INT PRIMARY KEY auto_increment,
 Descricao_Especialidade VARCHAR(45) not null
 );
@@ -61,7 +61,7 @@ CRM VARCHAR(20) not null,
 Codigo_Especialidade int,
 
 foreign key(Codigo_Especialidade)
-references Especiabilidades(Codigo_Especialidade)
+references Especialidades(Codigo_Especialidade)
 );
 
 
