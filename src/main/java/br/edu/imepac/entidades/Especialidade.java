@@ -9,6 +9,7 @@ package br.edu.imepac.entidades;
  * @author Usuário
  */
 public class Especialidade {
+    //Essa classe serve apenas para representar a entidade do banco de dados, com os mesmos atributos
     private Long codigo_especialidade;
     private String descricao_especialidade;
 
