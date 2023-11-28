@@ -14,7 +14,7 @@ public class Paciente {
     private int telefone;
     private int celular;
     private int dataNascimento;
-    private char sexo;
+    private char sexo;// esse aqui depois tem que alterar pra só receber M (sexo masculino) ou F (sexo feminino)
     private boolean possuiConvenio;
     private Convenio convenio;
 
