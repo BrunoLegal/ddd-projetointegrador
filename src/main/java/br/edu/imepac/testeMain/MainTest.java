@@ -2,22 +2,22 @@ package br.edu.imepac.testeMain;
 
 import br.edu.imepac.daos.EspecialidadeDao;
 import br.edu.imepac.entidades.Especialidade;
+import br.edu.imepac.servicos.EspecialidadeService;
 
 import java.sql.SQLException;
 
 //pacote e classe temporarios apenas para testar as classes e metodos sem utilizar o frontend
 public class MainTest {
-    public final EspecialidadeDao dao = new EspecialidadeDao();
+    public final static EspecialidadeService service = new EspecialidadeService();
     public static void main(String[] args) {
-        Especialidade e = new Especialidade(2L,"Bombeiro");
-        EspecialidadeDao dao = new EspecialidadeDao();
-        int res;
-
+        Especialidade esp = new Especialidade("Programador");
+        int res = -1;
         try{
-            System.out.println(dao.update(e));
-        }catch (SQLException E){
-            E.printStackTrace();
+            res = service.deleteEspecialidade(1L);
+        }catch (SQLException e){
+            e.printStackTrace();
         }
+        System.out.println(res);
 
 
     }
