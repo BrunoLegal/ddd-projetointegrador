@@ -43,7 +43,6 @@ public class Home extends javax.swing.JFrame {
         jMenu9 = new javax.swing.JMenu();
         jMenu10 = new javax.swing.JMenu();
         jMenu11 = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -101,9 +100,6 @@ public class Home extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu4);
 
-        jMenu1.setText("                                                                                                         ");
-        jMenuBar2.add(jMenu1);
-
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/imepac/views/suporteimage2.png"))); // NOI18N
         jMenuBar2.add(jMenu5);
 
@@ -150,7 +146,6 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
