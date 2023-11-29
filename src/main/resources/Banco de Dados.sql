@@ -22,7 +22,7 @@ Data_Nascimento DATE not null
 );
 
 
-create table Especiabilidades(
+create table Especilidades(
 Codigo_Especialidade INT PRIMARY KEY auto_increment,
 Descricao_Especialidade VARCHAR(45) not null
 );
