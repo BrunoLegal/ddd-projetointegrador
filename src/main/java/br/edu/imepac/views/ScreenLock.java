@@ -119,15 +119,14 @@ public class ScreenLock extends javax.swing.JFrame {
         getContentPane().add(jPanel1, gridBagConstraints);
 
         jLabel1.setBackground(new java.awt.Color(51, 153, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/vitoraugustobarcelospovoa/Documents/GIT/ddd-projetointegrador/src/main/java/br/BackgroundHD.png")); // NOI18N
         jLabel1.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = -450;
-        gridBagConstraints.ipady = -260;
+        gridBagConstraints.ipadx = 630;
+        gridBagConstraints.ipady = 460;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(4, 0, 0, 0);
         getContentPane().add(jLabel1, gridBagConstraints);
