@@ -75,7 +75,7 @@ public class ScreenLock extends javax.swing.JFrame {
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 92, 27, 21);
+        gridBagConstraints.insets = new java.awt.Insets(10, 92, 26, 27);
         jPanel1.add(jButton1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Roboto Condensed", 1, 36)); // NOI18N
@@ -112,22 +112,24 @@ public class ScreenLock extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 2;
-        gridBagConstraints.ipady = -5;
+        gridBagConstraints.ipadx = 27;
+        gridBagConstraints.ipady = 26;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(130, 110, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(120, 90, 0, 0);
         getContentPane().add(jPanel1, gridBagConstraints);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/imepac/views/BackgroundHD.jpeg"))); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(51, 153, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/vitoraugustobarcelospovoa/Documents/GIT/ddd-projetointegrador/src/main/java/br/BackgroundHD.png")); // NOI18N
+        jLabel1.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = -451;
-        gridBagConstraints.ipady = -286;
+        gridBagConstraints.ipadx = -450;
+        gridBagConstraints.ipady = -260;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(4, 0, 0, 0);
         getContentPane().add(jLabel1, gridBagConstraints);
 
         pack();
@@ -170,7 +172,9 @@ public class ScreenLock extends javax.swing.JFrame {
                 new ScreenLock().setVisible(true);
             }
         });
+     
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
