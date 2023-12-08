@@ -4,10 +4,66 @@
  */
 package br.edu.imepac.controladores;
 
+import br.edu.imepac.entidades.Usuario;
+import br.edu.imepac.servicos.UsuarioService;
+import br.edu.imepac.views.BaseForm;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 /**
  *
  * @author 231-001278
  */
 public class UsuarioController {
+
+    private final UsuarioService usuarioService;
+    private final BaseForm baseForm;
+
+    public UsuarioController(BaseForm baseForm){
+        this.usuarioService = new UsuarioService();
+        this.baseForm = baseForm;
+    }
+
+    public void addUsuario(Usuario user){
+        try{
+            this.usuarioService.addUsuario(user);
+        }catch(SQLException e){
+            baseForm.showErrorInternal(e.getMessage());
+        }
+    }
+
+    public void updateUsuario(Usuario user){
+        try{
+            this.usuarioService.updateUsuario(user);
+        }catch(SQLException e){
+            baseForm.showErrorInternal(e.getMessage());
+        }
+    }
+
+    public void deleteUsuario(Long id){
+        try{
+            this.usuarioService.deleteUsuario(id);
+        }catch(SQLException e){
+            baseForm.showErrorInternal(e.getMessage());
+        }
+    }
+    public Usuario findUsuario(Long id){
+        try{
+            return this.usuarioService.findUsuario(id);
+        }catch(SQLException e){
+            baseForm.showErrorInternal(e.getMessage());
+        }
+        return null;
+    }
+
+    public ArrayList findAllUsuario(){
+        try{
+            return this.usuarioService.findAllUsuario();
+        }catch (SQLException e){
+            baseForm.showErrorInternal(e.getMessage());
+        }
+        return null;
+    }
     
 }
