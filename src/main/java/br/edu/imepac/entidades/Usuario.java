@@ -6,9 +6,10 @@ package br.edu.imepac.entidades;
 
 /**
  *
- * @author Usuário
+ * @author
  */
 public class Usuario {
+
     private Long registro_usuario;
 
     public Usuario(){

@@ -1,6 +1,7 @@
 package br.edu.imepac.entidades;
 
 public class Paciente {
+    private int codigo_paciente;
     private String nome;
     private int RG;
     private String orgaoEmissor;
@@ -14,7 +15,7 @@ public class Paciente {
     private int telefone;
     private int celular;
     private int dataNascimento;
-    private char sexo;
+    private char sexo;// esse aqui depois tem que alterar pra só receber M (sexo masculino) ou F (sexo feminino)
     private boolean possuiConvenio;
     private Convenio convenio;
 
@@ -145,6 +146,27 @@ public class Paciente {
     public void setConvenio(Convenio convenio) {
         this.convenio = convenio;
     }
-    
-    
+
+    public Paciente(int codigo_paciente, String nome, int RG, String orgaoEmissor, int CPF, String endereco, int numero, String complemento, String bairro, String cidade, String estado, int telefone, int celular, int dataNascimento, char sexo, boolean possuiConvenio, Convenio convenio) {
+        this.codigo_paciente = codigo_paciente;
+        this.nome = nome;
+        this.RG = RG;
+        this.orgaoEmissor = orgaoEmissor;
+        this.CPF = CPF;
+        this.endereco = endereco;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.telefone = telefone;
+        this.celular = celular;
+        this.dataNascimento = dataNascimento;
+        this.sexo = sexo;
+        this.possuiConvenio = possuiConvenio;
+        this.convenio = convenio;
+    }
+
+    public Paciente() {
+    }
 }
