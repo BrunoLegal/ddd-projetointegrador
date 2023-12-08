@@ -23,9 +23,10 @@ data_nascimento date not null
 );
 
 
-create table especialidades(
-codigo_especialidade int primary key auto_increment,
-descricao_especialidade varchar(45) not null
+
+create table Especialidades(
+Codigo_Especialidade INT PRIMARY KEY auto_increment,
+Descricao_Especialidade VARCHAR(45) not null
 );
 
 
