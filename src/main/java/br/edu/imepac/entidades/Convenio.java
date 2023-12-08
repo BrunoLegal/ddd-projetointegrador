@@ -31,7 +31,7 @@ public class Convenio {
 
     public void setcodigo_convenio(Integer codigo_convenio) {
         this.codigo_convenio = codigo_convenio;
-    }git stat
+    }
     public String getempresa_convenio() {
         return empresa_convenio;
     }
