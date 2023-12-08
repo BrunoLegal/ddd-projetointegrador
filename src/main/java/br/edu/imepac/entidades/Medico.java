@@ -10,26 +10,26 @@ package br.edu.imepac.entidades;
  */
 public class Medico {
 
-    private int codigo_medico;
+    private Long codigo_medico;
     private String nome_medico;
-    private int codigo_especialidade;
+    private Long codigo_especialidade;
     private String crm;
 
     public Medico() {
     }
 
 
-    public Medico(int codigo_medico, String nome_medico, String crm, int codigo_especialidade) {
+    public Medico(Long codigo_medico, String nome_medico, String crm, Long codigo_especialidade) {
         this.codigo_medico = codigo_medico;
         this.nome_medico = nome_medico;
         this.crm = crm;
         this.codigo_especialidade = codigo_especialidade;
     }
-    public int getCodigo_Medico() {
+    public Long getCodigo_Medico() {
         return codigo_medico;
     }
 
-    public void setCodigo_Medico(int codigo_medico) {
+    public void setCodigo_Medico(Long codigo_medico) {
         this.codigo_medico = codigo_medico;
     }
 
@@ -41,11 +41,11 @@ public class Medico {
         this.nome_medico = nome_medico;
     }
 
-    public int getCodigo_Especialidade() {
+    public Long getCodigo_Especialidade() {
         return codigo_especialidade;
     }
 
-    public void setCodigo_Especialidade(int codigo_especialidade) {
+    public void setCodigo_Especialidade(Long codigo_especialidade) {
         this.codigo_especialidade = codigo_especialidade;
     }
 
