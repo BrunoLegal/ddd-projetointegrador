@@ -5,11 +5,17 @@
 package br.edu.imepac.daos;
 
 import br.edu.imepac.entidades.Convenio;
+import br.edu.imepac.entidades.Usuario;
 import br.edu.imepac.interfaces.IDatabaseCRUD;
 import br.edu.imepac.utils.DBConfig;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
 
 public class ConvenioDao implements IDatabaseCRUD<Convenio>{
     private Connection connection;
@@ -37,19 +43,24 @@ public class ConvenioDao implements IDatabaseCRUD<Convenio>{
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setLong(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
-        Convenio esp = null;
+        Convenio con = null;
         if(resultSet.next()){
-            esp = new Convenio(resultSet.getInt("codigo_covenio"), resultSet.getString("empresa_convenio"), resultSet.getString("cnpj"), resultSet.getString("telefone") );
-        }
+            con = new Convenio(resultSet.getLong("codigo_convenio"),
+                    resultSet.getString("empresa_convenio"),
+                    resultSet.getString("cnpj"),
+                    resultSet.getString("telefone"));
+        };
         this.destroyConnection();
-        return esp;
+        return con;
     }
     @Override
     public int save(Convenio entidade) throws SQLException {
         this.createConnection();
-        String sql = "insert into convenio(empresa_convenio) values (?)";
+        String sql = "insert into convenio(empresa_convenio) values (NULL,?,?,?)";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setString(1,entidade.getempresa_convenio());
+        preparedStatement.setString(2,entidade.getcnpj());
+        preparedStatement.setString(3,entidade.gettelefone());
         int result = preparedStatement.executeUpdate();
         this.destroyConnection();
         return result;
@@ -76,7 +87,10 @@ public class ConvenioDao implements IDatabaseCRUD<Convenio>{
         ResultSet resultSet = preparedStatement.executeQuery();
         ArrayList<Convenio> convenio = new ArrayList<>();
         while (resultSet.next()) {
-            convenio.add(new Convenio(resultSet.getInt("codigo_convenio"), resultSet.getString("descricao_convenio"), resultSet.getString("cnpj"), resultSet.getString("telefone")));
+            convenio.add(new Convenio(resultSet.getLong("codigo_convenio"),
+                                      resultSet.getString("descricao_convenio"),
+                                      resultSet.getString("cnpj"),
+                                      resultSet.getString("telefone")));
         }
         this.destroyConnection();
         return convenio;

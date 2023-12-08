@@ -3,7 +3,7 @@ package br.edu.imepac.entidades;
 
 public class Convenio {
 
-    private Integer codigo_convenio;
+    private Long codigo_convenio;
     private String empresa_convenio;
     private String cnpj;
     private String telefone;
@@ -18,18 +18,18 @@ public class Convenio {
         this.telefone = telefone;
     }
 
-    public Convenio(Integer codigo_convenio, String empresa_convenio, String cnpj, String telefone) {
+    public Convenio(Long codigo_convenio, String empresa_convenio, String cnpj, String telefone) {
         this.codigo_convenio = codigo_convenio;
         this.empresa_convenio = empresa_convenio;
         this.cnpj = cnpj;
         this.telefone = telefone;
     }
 
-    public Integer getcodigo_convenio() {
+    public Long getcodigo_convenio() {
         return codigo_convenio;
     }
 
-    public void setcodigo_convenio(Integer codigo_convenio) {
+    public void setcodigo_convenio(Long codigo_convenio) {
         this.codigo_convenio = codigo_convenio;
     }
     public String getempresa_convenio() {
