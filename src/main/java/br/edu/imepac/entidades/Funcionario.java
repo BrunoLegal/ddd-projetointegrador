@@ -4,26 +4,40 @@
  */
 package br.edu.imepac.entidades;
 
+import java.sql.Date;
+
 //@author Alfredo
 
 public class Funcionario {
     //declaração de atributos:
+    private long codigo_funcionario;
     private String nome;
-    private int RG;
+    private String RG;
     private String orgaoEmissor;
-    private long CPF;
+    private String CPF;
     private String endereco;
-    private int numero;
+    private String numero;
     private String complemento;
     private String bairro;
     private String cidade;
     private String estado;
-    private long telefone;
-    private long celular;
-    private long CTPS;// formato de número ctps: 1234567/1234
-    private long PIS;// formato de número PIS: "XXX. XXXXX. XX-X".
+    private String telefone;
+    private String celular;
+    private String CTPS;// formato de número ctps: 1234567/1234
+    private String PIS;// formato de número PIS: "XXX. XXXXX. XX-X".
+
+    private Date data_nascimento;
 
    //getters e setters:
+
+    public long getCodigo_funcionario() {
+        return codigo_funcionario;
+    }
+
+    public void setCodigo_funcionario(long codigo_funcionario) {
+        this.codigo_funcionario = codigo_funcionario;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -32,11 +46,11 @@ public class Funcionario {
         this.nome = nome;
     }
 
-    public int getRG() {
+    public String getRG() {
         return RG;
     }
 
-    public void setRG(int RG) {
+    public void setRG(String RG) {
         this.RG = RG;
     }
 
@@ -48,11 +62,11 @@ public class Funcionario {
         this.orgaoEmissor = orgaoEmissor;
     }
 
-    public long getCPF() {
+    public String getCPF() {
         return CPF;
     }
 
-    public void setCPF(long CPF) {
+    public void setCPF(String CPF) {
         this.CPF = CPF;
     }
 
@@ -64,11 +78,11 @@ public class Funcionario {
         this.endereco = endereco;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
@@ -104,41 +118,48 @@ public class Funcionario {
         this.estado = estado;
     }
 
-    public long getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(long telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    public long getCelular() {
+    public String getCelular() {
         return celular;
     }
 
-    public void setCelular(long celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
     }
 
-    public long getCTPS() {
+    public String getCTPS() {
         return CTPS;
     }
 
-    public void setCTPS(long CTPS) {
+    public void setCTPS(String CTPS) {
         this.CTPS = CTPS;
     }
 
-    public long getPIS() {
+    public String getPIS() {
         return PIS;
     }
 
-    public void setPIS(long PIS) {
+    public void setPIS(String PIS) {
         this.PIS = PIS;
     }
 
-    //construtor:
+    public Date getData_nascimento() {
+        return data_nascimento;
+    }
 
-    public Funcionario(String nome, int RG, String orgaoEmissor, long CPF, String endereco, int numero, String complemento, String bairro, String cidade, String estado, long telefone, long celular, long CTPS, long PIS) {
+    public void setData_nascimento(Date data_nascimento) {
+        this.data_nascimento = data_nascimento;
+    }
+
+    public Funcionario(long codigo_funcionario, String nome, String RG, String orgaoEmissor, String CPF, String endereco, String numero, String complemento, String bairro, String cidade, String estado, String telefone, String celular, String CTPS, String PIS, Date data_nascimento) {
+        this.codigo_funcionario = codigo_funcionario;
         this.nome = nome;
         this.RG = RG;
         this.orgaoEmissor = orgaoEmissor;
@@ -153,6 +174,25 @@ public class Funcionario {
         this.celular = celular;
         this.CTPS = CTPS;
         this.PIS = PIS;
+        this.data_nascimento = data_nascimento;
+    }
+
+    public Funcionario(String nome, String RG, String orgaoEmissor, String CPF, String endereco, String numero, String complemento, String bairro, String cidade, String estado, String telefone, String celular, String CTPS, String PIS, Date data_nascimento) {
+        this.nome = nome;
+        this.RG = RG;
+        this.orgaoEmissor = orgaoEmissor;
+        this.CPF = CPF;
+        this.endereco = endereco;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.telefone = telefone;
+        this.celular = celular;
+        this.CTPS = CTPS;
+        this.PIS = PIS;
+        this.data_nascimento = data_nascimento;
     }
 
     public Funcionario() {
