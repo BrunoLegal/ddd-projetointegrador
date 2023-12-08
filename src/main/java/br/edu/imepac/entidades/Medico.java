@@ -18,12 +18,7 @@ public class Medico {
     public Medico() {
     }
 
-    public Medico(String nome_medico, String crm, int codigo_especialidade) {
-        this.codigo_medico = null;
-        this.nome_medico = nome_medico;
-        this.crm = crm;
-        this.codigo_especialidade = codigo_especialidade;
-    }
+
     public Medico(int codigo_medico, String nome_medico, String crm, int codigo_especialidade) {
         this.codigo_medico = codigo_medico;
         this.nome_medico = nome_medico;
