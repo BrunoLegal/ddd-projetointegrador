@@ -54,24 +54,7 @@ public class ConvenioDao implements IDatabaseCRUD<Convenio>{
         this.destroyConnection();
         return result;
     }
-    public int save(Convenio entidade) throws SQLException {
-        this.createConnection();
-        String sql = "insert into convenio(cnpj) values (?)";
-        PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
-        preparedStatement.setString(1,entidade.getcnpj());
-        int result = preparedStatement.executeUpdate();
-        this.destroyConnection();
-        return result;
-    }
-    public int save(Convenio entidade) throws SQLException {
-        this.createConnection();
-        String sql = "insert into convenio(telefone) values (?)";
-        PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
-        preparedStatement.setString(1,entidade.gettelefone());
-        int result = preparedStatement.executeUpdate();
-        this.destroyConnection();
-        return result;
-    }
+
     @Override
     public int update(Convenio entidade) throws SQLException {
         this.createConnection();
