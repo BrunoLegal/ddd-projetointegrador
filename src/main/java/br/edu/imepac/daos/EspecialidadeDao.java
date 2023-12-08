@@ -8,7 +8,7 @@ import br.edu.imepac.entidades.Especialidade;
 import br.edu.imepac.interfaces.IDatabaseCRUD;
 import br.edu.imepac.utils.DBConfig;
 
-import java.sql.*;
+import java.sql.*; //TODO importar somente o necessario
 import java.util.ArrayList;
 
 /**
@@ -36,7 +36,7 @@ public class EspecialidadeDao implements IDatabaseCRUD<Especialidade> {
     @Override
     public int delete(Long id) throws SQLException {
         this.createConnection(); //chama o metodo CreateConnection para rapidamente criar uma conexão
-        String sql = "delete from especialidades where id = ?"; //Cria uma string com o comando a ser inserido, "?" é o simbolo utilizado como uma "variavel"
+        String sql = "delete from Especialidades where Codigo_Especialidade = ?"; //Cria uma string com o comando a ser inserido, "?" é o simbolo utilizado como uma "variavel"
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql); //prepara o comando para ser inserido na database
         preparedStatement.setLong(1, id); //aqui insere um comando do tipo Long onde aquele primeiro ? ficava, no caso o id recebido
         int result = preparedStatement.executeUpdate(); // cria uma variavel int, ela armazena o resultado do metodo que executa o comando preparado
@@ -47,7 +47,7 @@ public class EspecialidadeDao implements IDatabaseCRUD<Especialidade> {
     @Override
     public Especialidade read(Long id) throws SQLException {
         this.createConnection();
-        String sql = "select * from especialidades where id = ?";
+        String sql = "select * from Especialidades where Codigo_Especialidade = ?";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setLong(1, id);
         ResultSet resultSet = preparedStatement.executeQuery(); //cria um objeto ResultSet pra armazenar o resultado do select
@@ -62,7 +62,7 @@ public class EspecialidadeDao implements IDatabaseCRUD<Especialidade> {
     @Override
     public int save(Especialidade entidade) throws SQLException {
         this.createConnection();
-        String sql = "insert into especialidades(Descricao_Especialidade) values (?)";
+        String sql = "insert into Especialidades(Descricao_Especialidade) values (?)";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setString(1,entidade.getDescricao_especialidade());
         int result = preparedStatement.executeUpdate();
@@ -73,7 +73,7 @@ public class EspecialidadeDao implements IDatabaseCRUD<Especialidade> {
     @Override
     public int update(Especialidade entidade) throws SQLException {
         this.createConnection();
-        String sql = "update especialidades set Descricao_Especialidade = ? where id = ?";
+        String sql = "update Especialidades set Descricao_Especialidade = ? where Codigo_Especialidade = ?";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setString(1, entidade.getDescricao_especialidade()); //o primeiro parametro é um numero, ele representa qual "?" é para se substituir, da esquerda para a direita
         preparedStatement.setLong(2, entidade.getCodigo_especialidade());
@@ -85,7 +85,7 @@ public class EspecialidadeDao implements IDatabaseCRUD<Especialidade> {
     @Override
     public ArrayList<Especialidade> findAll() throws SQLException {
         this.createConnection();
-        String sql = "select * from especialidades";
+        String sql = "select * from Especialidades";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         ResultSet resultSet = preparedStatement.executeQuery();
         ArrayList<Especialidade> especialidades = new ArrayList<>(); //cria um objeto ArrayList, basicamente uma lista de objetos

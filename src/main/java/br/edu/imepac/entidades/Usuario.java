@@ -6,7 +6,7 @@ package br.edu.imepac.entidades;
 
 /**
  *
- * @author ALfredo
+ * @author
  */
 public class Usuario {
     private long IDusuario;
@@ -26,5 +26,13 @@ public class Usuario {
 
     public void setSenhaDeAcesso(String senhaDeAcesso) {
         this.senhaDeAcesso = senhaDeAcesso;
+    }
+
+    public Usuario(long IDusuario, String senhaDeAcesso) {
+        this.IDusuario = IDusuario;
+        this.senhaDeAcesso = senhaDeAcesso;
+    }
+
+    public Usuario() {
     }
 }

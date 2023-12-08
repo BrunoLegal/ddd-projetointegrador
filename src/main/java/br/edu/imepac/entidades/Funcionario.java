@@ -154,4 +154,7 @@ public class Funcionario {
         this.CTPS = CTPS;
         this.PIS = PIS;
     }
+
+    public Funcionario() {
+    }
 }
