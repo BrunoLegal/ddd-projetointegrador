@@ -10,7 +10,7 @@ package br.edu.imepac.views;
  */
 class JOptionpane {
 
-    static void showMessageDialog(Especialidade aThis, String inserido_com_sucesso) {
+    static void showMessageDialog(CadastrarEspecialidade aThis, String inserido_com_sucesso) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
