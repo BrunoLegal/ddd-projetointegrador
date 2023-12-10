@@ -4,17 +4,24 @@
  */
 package br.edu.imepac.views;
 
+import br.edu.imepac.controladores.EspecialidadeController;
+import br.edu.imepac.entidades.Especialidade;
+import br.edu.imepac.utils.IRolesForms;
+
+import javax.swing.*;
+
 /**
  *
  * @author vitoraugustobarcelospovoa
  */
-public class CadastrarEspecialidade extends javax.swing.JFrame {
-
+public class CadastrarEspecialidade extends BaseForm implements IRolesForms<Especialidade> {
+    private final EspecialidadeController especialidadeController ;
     /**
      * Creates new form Especialidade
      */
     public CadastrarEspecialidade() {
         initComponents();
+        this.especialidadeController = new EspecialidadeController(this);
     }
 
     /**
@@ -26,17 +33,17 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        descEspecialidade = new javax.swing.JTextField();
+        inserirEspecialidade = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jButton1.setText("Inserir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        inserirEspecialidade.setText("Inserir");
+        inserirEspecialidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                inserirEspecialidadeActionPerformed(evt);
             }
         });
 
@@ -50,12 +57,12 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(71, 71, 71)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(descEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(193, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(inserirEspecialidade)
                 .addGap(114, 114, 114))
         );
         layout.setVerticalGroup(
@@ -64,9 +71,9 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(descEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(jButton1)
+                .addComponent(inserirEspecialidade)
                 .addContainerGap(199, Short.MAX_VALUE))
         );
 
@@ -74,9 +81,13 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void inserirEspecialidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirEspecialidadeActionPerformed
+        if(isFieldsFormsValidate()){
+            this.especialidadeController.saveEspecialidade(createEntityViewRepresentation());
+            this.showSuccessMessage("Especialidade Cadastrado Com Sucesso!");
+
+        }
+    }//GEN-LAST:event_inserirEspecialidadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,8 +126,25 @@ public class CadastrarEspecialidade extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField descEspecialidade;
+    private javax.swing.JButton inserirEspecialidade;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+
+    @Override
+    public Especialidade createEntityViewRepresentation() {
+        return new Especialidade(this.descEspecialidade.getText());
+    }
+
+    @Override
+    public boolean isFieldsFormsValidate() {
+        if(this.descEspecialidade.getText().isBlank() || this.descEspecialidade.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Insira a Especialidade a ser inserida primeiro!", "Alerta!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+    private void resetFields(){
+        descEspecialidade.setText("");
+    }
     // End of variables declaration//GEN-END:variables
 }
