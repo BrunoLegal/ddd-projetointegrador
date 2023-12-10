@@ -9,6 +9,7 @@ import br.edu.imepac.servicos.EspecialidadeService;
 import br.edu.imepac.views.BaseForm;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -38,5 +39,30 @@ public class EspecialidadeController {
             baseForm.showErrorInternal(sql.getMessage());
         }
     }
-    
+
+    public void updateEspecialidade(Especialidade esp){
+        try{
+            this.especialidadeService.updateEspecialidade(esp);
+        }catch(SQLException sql){
+            baseForm.showErrorInternal(sql.getMessage());
+        }
+    }
+
+    public Especialidade findEspecialidade(Long id){
+        try{
+            return this.especialidadeService.findEspecialidade(id);
+        }catch (SQLException sql){
+            baseForm.showErrorInternal(sql.getMessage());
+        }
+        return null;
+    }
+
+    public ArrayList findAllEspecialidade(){
+        try{
+            return this.especialidadeService.findAllEspecialidade();
+        }catch(SQLException sql){
+            baseForm.showErrorInternal(sql.getMessage());
+        }
+        return null;
+    }
 }

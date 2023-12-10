@@ -7,7 +7,7 @@ import static javax.swing.JOptionPane.QUESTION_MESSAGE;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
 import static javax.swing.JOptionPane.YES_NO_OPTION;
 
-public abstract class BaseForm extends javax.swing.JInternalFrame {
+public abstract class BaseForm extends javax.swing.JFrame {
 
     public void showErrorInternal(String message) {
         JOptionPane.showMessageDialog(null, "Um erro inesperado aconteceu! Comunique o administrador do sistema.\n" + message, "Erro interno", ERROR_MESSAGE);
