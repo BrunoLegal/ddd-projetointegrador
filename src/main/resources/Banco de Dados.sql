@@ -83,7 +83,6 @@ celular varchar(20) not null,
 data_nascimento date not null,
 sexo varchar(1) not null,
 tem_convenio varchar(1) not null,
-senha_acesso varchar(10) not null,
 codigo_convenio int,
 
 foreign key(codigo_convenio)

@@ -10,10 +10,8 @@ import br.edu.imepac.views.BaseForm;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-/**
- *
- * @author 231-001278
- */
+// @author Alfredo
+
 public class FuncionarioController {
     private final FuncionarioService funcionarioService;
     private final BaseForm baseForm;
@@ -31,26 +29,26 @@ public class FuncionarioController {
         }
     }
 
-    public void deleteFuncionario(Funcionario fUncionario) {
+    public void deleteFuncionario(Funcionario funcionario) {
         try {
-            this.funcionarioService.removeContact(contact.getId());
+            this.funcionarioService.removeFuncionario(funcionario.getCodigo_funcionario());
         } catch (SQLException sqlException) {
             baseForm.showErrorInternal(sqlException.getMessage());
         }
     }
 
-    public ArrayList<Contact> loadAllData() {
+    public ArrayList<Funcionario> loadAllData() {
         try {
-            return this.contactService.findAllContact();
+            return this.funcionarioService.findAllFuncionario();
         } catch (SQLException sqlException) {
             baseForm.showErrorInternal(sqlException.getMessage());
         }
         return null;
     }
 
-    public void updateContact(Contact contact) {
+    public void updateFuncionario(Funcionario funcionario) {
         try {
-            this.contactService.updateContact(contact);
+            this.funcionarioService.updateFuncionario(funcionario);
         } catch (SQLException sqlException) {
             baseForm.showErrorInternal(sqlException.getMessage());
         }
