@@ -4,7 +4,7 @@
  */
 package br.edu.imepac.entidades;
 
-import java.sql.Date;
+import java.sql.Date; // importei essa classe para poder fazer o java formatar automaticamente o tipo de dado "Date" pra ficar idêntico ao tipo de dado "Date" que será usado no banco de dados
 
 //@author Alfredo
 

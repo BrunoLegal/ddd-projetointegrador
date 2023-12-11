@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author 231-001278
+ * @author Alfredo
  */
 public class FuncionarioDao implements IDatabaseCRUD<Funcionario>{
 
@@ -128,6 +128,7 @@ public class FuncionarioDao implements IDatabaseCRUD<Funcionario>{
         ResultSet resultSet = preparedStatement.executeQuery();
         ArrayList<Funcionario> persons = new ArrayList<>();
         while (resultSet.next()) {
+
             persons.add(new Funcionario(
                     resultSet.getLong("codigo_funcionario"),
                     resultSet.getString("nome_completo"), 
