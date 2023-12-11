@@ -128,7 +128,24 @@ public class FuncionarioDao implements IDatabaseCRUD<Funcionario>{
         ResultSet resultSet = preparedStatement.executeQuery();
         ArrayList<Funcionario> persons = new ArrayList<>();
         while (resultSet.next()) {
-            persons.add(new Funcionario(resultSet.getLong("codigo_funcionario"), resultSet.getString("nome_completo"), resultSet.getString("numero_rg"), resultSet.getString("orgao_emissor"), resultSet.getString("numero_cpf"), resultSet.getString("endereco"), resultSet.getString("numero"), resultSet.getString("complemento"), resultSet.getString("bairro"), resultSet.getString("cidade"), resultSet.getString("estado"), resultSet.getString("telefone"), resultSet.getString("celular"), resultSet.getString("numero_ctps"), resultSet.getString("numero_pis"), resultSet.getDate("data_nascimento")));
+
+            persons.add(new Funcionario(
+                    resultSet.getLong("codigo_funcionario"),
+                    resultSet.getString("nome_completo"), 
+                    resultSet.getString("numero_rg"), 
+                    resultSet.getString("orgao_emissor"),
+                    resultSet.getString("numero_cpf"), 
+                    resultSet.getString("endereco"),
+                    resultSet.getString("numero"),
+                    resultSet.getString("complemento"),
+                    resultSet.getString("bairro"),
+                    resultSet.getString("cidade"),
+                    resultSet.getString("estado"),
+                    resultSet.getString("telefone"),
+                    resultSet.getString("celular"),
+                    resultSet.getString("numero_ctps"),
+                    resultSet.getString("numero_pis"),
+                    resultSet.getDate("data_nascimento")));
         }
         this.destroyConnection();
         return persons;

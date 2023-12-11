@@ -11,7 +11,6 @@ import br.edu.imepac.utils.DBConfig;
 import java.sql.*;
 import java.util.ArrayList;
 
-package br.edu.imepac.daos;
 
 
 import br.edu.imepac.entidades.Medico;
@@ -79,7 +78,7 @@ public class MedicoDao implements IDatabaseCRUD<Medico> {
         ResultSet resultSet = preparedStatement.executeQuery();
         Medico esp = null;
         if(resultSet.next()){
-            esp = new Medico(resultSet.getInt("Codigo_medico"), resultSet.getString("Nome_medico"), resultSet.getInt("Codigo_Especialidade"), resultSet.getString("CRM"));
+            esp = new Medico(resultSet.getLong("Codigo_medico"), resultSet.getString("Nome_medico"), resultSet.getString("CRM"), resultSet.getLong("Codigo_Especialidade"));
         }
         this.destroyConnection();
         return esp;
@@ -93,9 +92,9 @@ public class MedicoDao implements IDatabaseCRUD<Medico> {
         this.createConnection();
         String sql = "update Medicos set codigo_medico = ?, getNome_Medico = ?, codigo_especialidade = ?, getCRM = ?, where id = ?";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
-        preparedStatement.setInt(1,entidade.getCodigo_Medico());
+        preparedStatement.setLong(1,entidade.getCodigo_Medico());
         preparedStatement.setString(2,entidade.getNome_Medico());
-        preparedStatement.setInt(3,entidade.getCodigo_Especialidade());
+        preparedStatement.setLong(3,entidade.getCodigo_Especialidade());
         preparedStatement.setString(4,entidade.getCRM());
         int result = preparedStatement.executeUpdate();
         this.destroyConnection();
@@ -114,7 +113,7 @@ public class MedicoDao implements IDatabaseCRUD<Medico> {
         ArrayList<Medico> medicos = new ArrayList<>(); //cria um objeto ArrayList, basicamente uma lista de objetos
         //adiciona cada resultado dos selects na lista até o resultSet ser null
         while (resultSet.next())
-            medicos.add(new Medico(resultSet.getInt("Codigo_Medico"), resultSet.getString("Nome_Medico"), resultSet.getString("CRM") ,resultSet.getInt("Codigo_Especialidade")));
+            medicos.add(new Medico(resultSet.getLong("Codigo_Medico"), resultSet.getString("Nome_Medico"), resultSet.getString("CRM") ,resultSet.getLong("Codigo_Especialidade")));
         this.destroyConnection();
         return medicos;
     }
