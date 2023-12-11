@@ -6,7 +6,7 @@ package br.edu.imepac.views;
 
 import br.edu.imepac.controladores.EspecialidadeController;
 import br.edu.imepac.entidades.Especialidade;
-import br.edu.imepac.utils.IRolesForms;
+import br.edu.imepac.interfaces.IRolesForms;
 
 import javax.swing.*;
 
