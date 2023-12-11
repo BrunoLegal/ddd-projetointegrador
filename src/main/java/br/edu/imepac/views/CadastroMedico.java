@@ -253,7 +253,7 @@ public class CadastroMedico extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel20)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jComboBox3, 0, 383, Short.MAX_VALUE))
+                                    .addComponent(jComboBox3, 0, 463, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField15)
