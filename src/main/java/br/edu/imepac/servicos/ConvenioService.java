@@ -17,12 +17,12 @@ public class ConvenioService {
 
     public ConvenioService(){ this.convenioDao = new ConvenioDao(); }
 
-    public int addConvenio(Convenio esp) throws SQLException {
-        return this.convenioDao.save(esp);
+    public int addConvenio(Convenio conv) throws SQLException {
+        return this.convenioDao.save(conv);
     }
 
-    public int updateConvenio(Convenio esp) throws SQLException {
-        return this.convenioDao.update(esp);
+    public int updateConvenio(Convenio conv) throws SQLException {
+        return this.convenioDao.update(conv);
     }
     public int deleteConvenio(Long id) throws SQLException {
         return this.convenioDao.delete(id);

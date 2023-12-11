@@ -5,7 +5,6 @@
 package br.edu.imepac.daos;
 
 import br.edu.imepac.entidades.Convenio;
-import br.edu.imepac.entidades.Usuario;
 import br.edu.imepac.interfaces.IDatabaseCRUD;
 import br.edu.imepac.utils.DBConfig;
 
@@ -43,15 +42,15 @@ public class ConvenioDao implements IDatabaseCRUD<Convenio>{
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setLong(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
-        Convenio con = null;
+        Convenio conv = null;
         if(resultSet.next()){
-            con = new Convenio(resultSet.getLong("codigo_convenio"),
+            conv = new Convenio(resultSet.getLong("codigo_convenio"),
                     resultSet.getString("empresa_convenio"),
                     resultSet.getString("cnpj"),
                     resultSet.getString("telefone"));
         };
         this.destroyConnection();
-        return con;
+        return conv;
     }
     @Override
     public int save(Convenio entidade) throws SQLException {

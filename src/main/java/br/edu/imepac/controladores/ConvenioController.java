@@ -20,17 +20,17 @@ public class ConvenioController {
         this.baseForm = baseForm;
     }
 
-    public void addConvenio(Convenio user){
+    public void addConvenio(Convenio conv){
         try{
-            this.convenioService.addConvenio(user);
+            this.convenioService.addConvenio(conv);
         }catch(SQLException e){
             baseForm.showErrorInternal(e.getMessage());
         }
     }
 
-    public void updateConvenio(Convenio user){
+    public void updateConvenio(Convenio conv){
         try{
-            this.convenioService.updateConvenio(user);
+            this.convenioService.updateConvenio(conv);
         }catch(SQLException e){
             baseForm.showErrorInternal(e.getMessage());
         }
