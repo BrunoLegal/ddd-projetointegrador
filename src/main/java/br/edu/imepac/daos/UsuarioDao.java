@@ -120,7 +120,7 @@ public class UsuarioDao implements IDatabaseCRUD<Usuario> {
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         ResultSet resultSet = preparedStatement.executeQuery();
         ArrayList<Usuario> user = new ArrayList<>();
-        if(resultSet.next()){
+        while(resultSet.next()){
             user.add(new Usuario(resultSet.getLong("Registro_Usuario"),
                     resultSet.getString("Indentificacao_Usuario"),
                     resultSet.getString("Senha_Acesso"),
