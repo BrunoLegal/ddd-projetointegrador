@@ -36,10 +36,14 @@ public class CadastrarEspecialidade extends BaseForm implements IRolesForms<Espe
         descEspecialidade = new javax.swing.JTextField();
         inserirEspecialidade = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
+        inserirEspecialidade.setBackground(new java.awt.Color(51, 153, 255));
+        inserirEspecialidade.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        inserirEspecialidade.setForeground(new java.awt.Color(255, 255, 255));
         inserirEspecialidade.setText("Inserir");
         inserirEspecialidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,31 +54,41 @@ public class CadastrarEspecialidade extends BaseForm implements IRolesForms<Espe
         jLabel1.setFont(new java.awt.Font("Roboto Condensed", 1, 18)); // NOI18N
         jLabel1.setText("Inserir Especilidade");
 
+        jLabel2.setFont(new java.awt.Font("Roboto Condensed", 1, 24)); // NOI18N
+        jLabel2.setText("Cadastro Especialidade");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(descEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(193, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(inserirEspecialidade)
-                .addGap(114, 114, 114))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel1)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(inserirEspecialidade)
+                    .addComponent(descEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(descEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(26, 26, 26)
                 .addComponent(inserirEspecialidade)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -129,22 +143,6 @@ public class CadastrarEspecialidade extends BaseForm implements IRolesForms<Espe
     private javax.swing.JTextField descEspecialidade;
     private javax.swing.JButton inserirEspecialidade;
     private javax.swing.JLabel jLabel1;
-
-    @Override
-    public Especialidade createEntityViewRepresentation() {
-        return new Especialidade(this.descEspecialidade.getText());
-    }
-
-    @Override
-    public boolean isFieldsFormsValidate() {
-        if(this.descEspecialidade.getText().isBlank() || this.descEspecialidade.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Insira a Especialidade a ser inserida primeiro!", "Alerta!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        return true;
-    }
-    private void resetFields(){
-        descEspecialidade.setText("");
-    }
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
