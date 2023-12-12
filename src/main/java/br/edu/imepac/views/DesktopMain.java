@@ -4,6 +4,8 @@
  */
 package br.edu.imepac.views;
 
+import br.edu.imepac.views.funcionario.CadastroFuncionario;
+
 /**
  *
  * @author 231-001278

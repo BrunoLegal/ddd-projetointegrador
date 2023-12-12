@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.edu.imepac.views;
+package br.edu.imepac.views.funcionario;
 
 import br.edu.imepac.controladores.FuncionarioController;
 import br.edu.imepac.entidades.Funcionario;
 import br.edu.imepac.utils.IRolesForms;
+import br.edu.imepac.views.BaseForm;
 
 import javax.swing.*;
 import java.sql.Date;
