@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package br.edu.imepac.entidades;
-
 import java.sql.Date; // importei essa classe para poder fazer o java formatar automaticamente o tipo de dado "Date" pra ficar idêntico ao tipo de dado "Date" que será usado no banco de dados
 
 //@author Alfredo
@@ -26,7 +25,7 @@ public class Funcionario {
     private String CTPS;// formato de número ctps: 1234567/1234
     private String PIS;// formato de número PIS: "XXX. XXXXX. XX-X".
 
-    private Date data_nascimento;
+    private java.sql.Date data_nascimento;
 
    //getters e setters:
 
@@ -177,7 +176,7 @@ public class Funcionario {
         this.data_nascimento = data_nascimento;
     }
 
-    public Funcionario(String nome, String RG, String orgaoEmissor, String CPF, String endereco, String numero, String complemento, String bairro, String cidade, String estado, String telefone, String celular, String CTPS, String PIS, Date data_nascimento) {
+    public Funcionario(String nome, String RG, String orgaoEmissor, String CPF, String endereco, String numero, String complemento, String bairro, String cidade, String estado, String telefone, String celular, String CTPS, String PIS, java.sql.Date data_nascimento) {
         this.nome = nome;
         this.RG = RG;
         this.orgaoEmissor = orgaoEmissor;
