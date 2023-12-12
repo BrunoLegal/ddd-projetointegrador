@@ -10,6 +10,8 @@ import br.edu.imepac.utils.IRolesForms;
 
 import javax.swing.*;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -66,9 +68,9 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
         jLabel18 = new javax.swing.JLabel();
         pisField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        dataNascimentoFField = new javax.swing.JFormattedTextField();
         complementoField = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
+        dataNascimentoField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -149,20 +151,15 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
             }
         });
 
-        dataNascimentoFField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        dataNascimentoFField.setText("DD/MM/AAAA");
-        dataNascimentoFField.setToolTipText("");
-        dataNascimentoFField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        dataNascimentoFField.setHighlighter(null);
-        dataNascimentoFField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                dataNascimentoFFieldFocusGained(evt);
-            }
-        });
-
         jLabel19.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(102, 102, 102));
         jLabel19.setText("Complemento");
+
+        dataNascimentoField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                dataNascimentoFieldFocusGained(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -223,7 +220,7 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel16)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(dataNascimentoFField)))
+                                    .addComponent(dataNascimentoField)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
@@ -312,7 +309,7 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ctpsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pisField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dataNascimentoFField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dataNascimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap(9, Short.MAX_VALUE))
@@ -330,10 +327,85 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void dataNascimentoFFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoFFieldFocusGained
+    private void dataNascimentoFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoFFieldFocusGained
         // TODO add your handling code here:
-        dataNascimentoFField.setText("");
-    }//GEN-LAST:event_dataNascimentoFFieldFocusGained
+        dataNascimentoField.setText("");
+    }//GEN-LAST:event_dataNascimentoFieldFocusGained
+
+
+    @Override
+    public Funcionario createEntityViewRepresentation() {
+        return new Funcionario(
+                nomeField.getText(),
+                rgField.getText(),
+                orgaoEmissorField.getText(),
+                cpfField.getText(),
+                enderecoField.getText(),
+                numeroEnderecoField.getText(),
+                complementoField.getText(),
+                bairroField.getText(),
+                cidadeCB.getItemAt(cidadeCB.getSelectedIndex()),
+                estadoCB.getItemAt(estadoCB.getSelectedIndex()),
+                telefone1Field.getText(), celularField.getText(),
+                ctpsField.getText(),
+                pisField.getText(),
+                stringToSql(dataNascimentoField.getText()));
+    }
+
+    @Override
+    public boolean isFieldsFormsValidate() {
+        if(nomeField.getText().isBlank() || nomeField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha o campo de Nome!", "Alerta!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if(rgField.getText().isBlank() || rgField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha o campo de RG!", "Alerta!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if(orgaoEmissorField.getText().isBlank() || orgaoEmissorField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha o campo de Orgão Emissor!", "Alerta!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if(cpfField.getText().isBlank() || cpfField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha o campo de CPF!", "Alerta!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if(enderecoField.getText().isBlank() || enderecoField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha o campo de Endereço!", "Alerta!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if(numeroEnderecoField.getText().isBlank() || numeroEnderecoField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha o campo de Número de endereço!", "Alerta!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }if(bairroField.getText().isBlank() || bairroField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha o campo de Bairro!", "Alerta!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if(telefone1Field.getText().isBlank() || telefone1Field.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha o campo de Telefone!", "Alerta!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if(ctpsField.getText().isBlank() || ctpsField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha o campo de CTPS!", "Alerta!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if(pisField.getText().isBlank() || pisField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha o campo de PIS!", "Alerta!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if(dataNascimentoField.getText().isBlank() || dataNascimentoField.getText().isEmpty() || dataNascimentoField.getText().equals("DD/MM/AAAA")){
+            JOptionPane.showMessageDialog(null, "Preencha a data de nascimento!", "Alerta!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+
+    private Date stringToSql(String stringDate){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Date sqlDate = new Date(sdf.getCalendar().getTimeInMillis());
+
+        return sqlDate;
+    }
 
     /**
      * @param args the command line arguments
@@ -342,7 +414,7 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -392,7 +464,7 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
     private javax.swing.JTextField complementoField;
     private javax.swing.JTextField cpfField;
     private javax.swing.JTextField ctpsField;
-    private javax.swing.JFormattedTextField dataNascimentoFField;
+    private javax.swing.JTextField dataNascimentoField;
     private javax.swing.JTextField enderecoField;
     private javax.swing.JComboBox<String> estadoCB;
     private javax.swing.JButton jButton1;
@@ -420,78 +492,5 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
     private javax.swing.JTextField rgField;
     private javax.swing.JTextField telefone1Field;
     private javax.swing.JTextField telefone2Field;
-
-    @Override
-    public Funcionario createEntityViewRepresentation() {
-        return new Funcionario(
-                nomeField.getText(),
-                rgField.getText(),
-                orgaoEmissorField.getText(),
-                cpfField.getText(),
-                enderecoField.getText(),
-                numeroEnderecoField.getText(),
-                complementoField.getText(),
-                bairroField.getText(),
-                cidadeCB.getItemAt(cidadeCB.getSelectedIndex()),
-                estadoCB.getItemAt(estadoCB.getSelectedIndex()),
-                telefone1Field.getText(), celularField.getText(),
-                ctpsField.getText(),
-                pisField.getText(),
-                utilToSql(dataNascimentoFField.getValue()));
-    }
-
-    @Override
-    public boolean isFieldsFormsValidate() {
-        if(nomeField.getText().isBlank() || nomeField.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha o campo de Nome!", "Alerta!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        if(rgField.getText().isBlank() || rgField.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha o campo de RG!", "Alerta!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        if(orgaoEmissorField.getText().isBlank() || orgaoEmissorField.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha o campo de Orgão Emissor!", "Alerta!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        if(cpfField.getText().isBlank() || cpfField.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha o campo de CPF!", "Alerta!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        if(enderecoField.getText().isBlank() || enderecoField.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha o campo de Endereço!", "Alerta!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        if(numeroEnderecoField.getText().isBlank() || numeroEnderecoField.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha o campo de Número de endereço!", "Alerta!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }if(bairroField.getText().isBlank() || bairroField.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha o campo de Bairro!", "Alerta!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        if(telefone1Field.getText().isBlank() || telefone1Field.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha o campo de Telefone!", "Alerta!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        if(ctpsField.getText().isBlank() || ctpsField.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha o campo de CTPS!", "Alerta!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        if(pisField.getText().isBlank() || pisField.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha o campo de PIS!", "Alerta!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        if(dataNascimentoFField.getText().isBlank() || dataNascimentoFField.getText().isEmpty() || dataNascimentoFField.getText().equals("DD/MM/AAAA")){
-            JOptionPane.showMessageDialog(null, "Preencha a data de nascimento!", "Alerta!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        return true;
-    }
-
-    private Date utilToSql(JFormattedTextField date){
-
-        java.sql.Date sqlDate = new Date(date.getFormatter().valueToString());
-        return sqlDate;
-    }
     // End of variables declaration//GEN-END:variables
 }
