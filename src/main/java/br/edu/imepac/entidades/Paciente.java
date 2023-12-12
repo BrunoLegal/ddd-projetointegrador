@@ -21,7 +21,9 @@ public class Paciente {
     private Date dataNascimento;
     private Sexo sexo;// esse aqui depois tem que alterar pra só receber M (sexo masculino) ou F (sexo feminino)
     private Sim_ou_Nao possuiConvenio;
-    private Convenio convenio;
+    private long convenio;
+
+
 
     public long getCodigo_paciente() {
         return codigo_paciente;
@@ -151,18 +153,15 @@ public class Paciente {
         this.possuiConvenio = possuiConvenio;
     }
 
-    public Convenio getConvenio() {
+    public long getConvenio() {
         return convenio;
     }
 
-    public void setConvenio(Convenio convenio) {
+    public void setConvenio(long convenio) {
         this.convenio = convenio;
     }
 
-    public Paciente() {
-    }
-
-    public Paciente(long codigo_paciente, String nome, String RG, String orgaoEmissor, String CPF, String endereco, String numero, String complemento, String bairro, String cidade, String estado, String telefone, String celular, Date dataNascimento, Sexo sexo, Sim_ou_Nao possuiConvenio, Convenio convenio) {
+    public Paciente(long codigo_paciente, String nome, String RG, String orgaoEmissor, String CPF, String endereco, String numero, String complemento, String bairro, String cidade, String estado, String telefone, String celular, Date dataNascimento, Sexo sexo, Sim_ou_Nao possuiConvenio, long convenio) {
         this.codigo_paciente = codigo_paciente;
         this.nome = nome;
         this.RG = RG;
@@ -182,7 +181,7 @@ public class Paciente {
         this.convenio = convenio;
     }
 
-    public Paciente(String nome, String RG, String orgaoEmissor, String CPF, String endereco, String numero, String complemento, String bairro, String cidade, String estado, String telefone, String celular, Date dataNascimento, Sexo sexo, Sim_ou_Nao possuiConvenio, Convenio convenio) {
+    public Paciente(String nome, String RG, String orgaoEmissor, String CPF, String endereco, String numero, String complemento, String bairro, String cidade, String estado, String telefone, String celular, Date dataNascimento, Sexo sexo, Sim_ou_Nao possuiConvenio, long convenio) {
         this.nome = nome;
         this.RG = RG;
         this.orgaoEmissor = orgaoEmissor;
@@ -199,5 +198,8 @@ public class Paciente {
         this.sexo = sexo;
         this.possuiConvenio = possuiConvenio;
         this.convenio = convenio;
+    }
+
+    public Paciente() {
     }
 }
