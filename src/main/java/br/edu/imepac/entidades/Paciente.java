@@ -11,7 +11,6 @@ public class Paciente {
     private String orgaoEmissor;
     private String CPF;
     private String endereco;
-    private String numero;
     private String complemento;
     private String bairro;
     private String cidade;
@@ -22,8 +21,6 @@ public class Paciente {
     private Sexo sexo;// esse aqui depois tem que alterar pra só receber M (sexo masculino) ou F (sexo feminino)
     private Sim_ou_Nao possuiConvenio;
     private long convenio;
-
-
 
     public long getCodigo_paciente() {
         return codigo_paciente;
@@ -71,14 +68,6 @@ public class Paciente {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
     }
 
     public String getComplemento() {
@@ -161,14 +150,13 @@ public class Paciente {
         this.convenio = convenio;
     }
 
-    public Paciente(long codigo_paciente, String nome, String RG, String orgaoEmissor, String CPF, String endereco, String numero, String complemento, String bairro, String cidade, String estado, String telefone, String celular, Date dataNascimento, Sexo sexo, Sim_ou_Nao possuiConvenio, long convenio) {
+    public Paciente(long codigo_paciente, String nome, String RG, String orgaoEmissor, String CPF, String endereco, String complemento, String bairro, String cidade, String estado, String telefone, String celular, Date dataNascimento, Sexo sexo, Sim_ou_Nao possuiConvenio, long convenio) {
         this.codigo_paciente = codigo_paciente;
         this.nome = nome;
         this.RG = RG;
         this.orgaoEmissor = orgaoEmissor;
         this.CPF = CPF;
         this.endereco = endereco;
-        this.numero = numero;
         this.complemento = complemento;
         this.bairro = bairro;
         this.cidade = cidade;
@@ -181,13 +169,12 @@ public class Paciente {
         this.convenio = convenio;
     }
 
-    public Paciente(String nome, String RG, String orgaoEmissor, String CPF, String endereco, String numero, String complemento, String bairro, String cidade, String estado, String telefone, String celular, Date dataNascimento, Sexo sexo, Sim_ou_Nao possuiConvenio, long convenio) {
+    public Paciente(String nome, String RG, String orgaoEmissor, String CPF, String endereco, String complemento, String bairro, String cidade, String estado, String telefone, String celular, Date dataNascimento, Sexo sexo, Sim_ou_Nao possuiConvenio, long convenio) {
         this.nome = nome;
         this.RG = RG;
         this.orgaoEmissor = orgaoEmissor;
         this.CPF = CPF;
         this.endereco = endereco;
-        this.numero = numero;
         this.complemento = complemento;
         this.bairro = bairro;
         this.cidade = cidade;
