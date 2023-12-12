@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.edu.imepac.DAOs;
+package br.edu.imepac.daos;
 
 import br.edu.imepac.entidades.Funcionario;
 import br.edu.imepac.interfaces.IDatabaseCRUD;

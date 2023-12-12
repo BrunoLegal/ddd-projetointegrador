@@ -44,6 +44,7 @@ public class PacienteDao implements IDatabaseCRUD<Paciente> {
         preparedStatement.setString(13, person.getSexo().toString());//por algum motivo ele não aceitoueu colocar o atributo doreto como tipo Sexo, então eu tive que transformar em string
         preparedStatement.setString(14, person.getPossuiConvenio().toString() );//esse aqui deu o mesmo problema, acho q é porque é um tipo de dado ENUM
         preparedStatement.setLong(15, person.getConvenio());
+
         int result = preparedStatement.executeUpdate();
         this.destroyConnection();
         return result;
