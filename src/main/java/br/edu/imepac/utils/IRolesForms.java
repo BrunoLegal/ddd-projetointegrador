@@ -1,4 +1,4 @@
-package br.edu.imepac.interfaces;
+package br.edu.imepac.utils;
 
 public interface IRolesForms<T> {
 

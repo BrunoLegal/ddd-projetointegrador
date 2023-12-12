@@ -42,23 +42,22 @@ public class PacienteDao implements IDatabaseCRUD<Paciente> {
         preparedStatement.setString(11, person.getCelular());
         preparedStatement.setDate(12, person.getDataNascimento() );
         preparedStatement.setString(13, person.getSexo().toString());//por algum motivo ele não aceitoueu colocar o atributo doreto como tipo Sexo, então eu tive que transformar em string
-        preparedStatement.setString(14, person.getPossuiConvenio() );
-        preparedStatement.setString(15, person.getConvenio());
+     
         int result = preparedStatement.executeUpdate();
         this.destroyConnection();
         return result;
     }
 
     @Override
-    public Contact read(Long id) throws SQLException {
+    public Paciente read(Long id) throws SQLException {
         this.createConnection();
         String sql = "select * from contacts where id = ?";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setLong(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
-        Contact person = null;
+        Paciente person = null;
         if (resultSet.next()) {
-            person = new Contact(resultSet.getLong("id"), resultSet.getString("name"), resultSet.getString("email"));
+           // person = new Paciente(resultSet.getLong("id"), resultSet.getString("name"), resultSet.getString("email"));
         }
         this.destroyConnection();
         return person;
@@ -76,27 +75,27 @@ public class PacienteDao implements IDatabaseCRUD<Paciente> {
     }
 
     @Override
-    public int update(Contact person) throws SQLException {
+    public int update(Paciente person) throws SQLException {
         this.createConnection();
         String sql = "update contacts set name = ?, email = ? where id = ?";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
-        preparedStatement.setString(1, person.getName());
-        preparedStatement.setString(2, person.getEmail());
-        preparedStatement.setLong(3, person.getId());
+        //preparedStatement.setString(1, person.getName());
+       // preparedStatement.setString(2, person.getEmail());
+       // preparedStatement.setLong(3, person.getId());
         int result = preparedStatement.executeUpdate();
         this.destroyConnection();
         return result;
     }
 
     @Override
-    public ArrayList<Contact> findAll() throws SQLException {
+    public ArrayList<Paciente> findAll() throws SQLException {
         this.createConnection();
         String sql = "select * from contacts";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         ResultSet resultSet = preparedStatement.executeQuery();
-        ArrayList<Contact> persons = new ArrayList<>();
+        ArrayList<Paciente> persons = new ArrayList<>();
         while (resultSet.next()) {
-            persons.add(new Contact(resultSet.getLong("id"), resultSet.getString("name"), resultSet.getString("email")));
+           // persons.add(new Paciente(resultSet.getLong("id"), resultSet.getString("name"), resultSet.getString("email")));
         }
         this.destroyConnection();
         return persons;

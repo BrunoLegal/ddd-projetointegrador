@@ -4,7 +4,7 @@
  */
 package br.edu.imepac.servicos;
 
-import br.edu.imepac.DAOs.FuncionarioDao;
+import br.edu.imepac.daos.FuncionarioDao;
 import br.edu.imepac.entidades.Funcionario;
 import java.sql.SQLException;
 import java.util.ArrayList;
