@@ -2,7 +2,6 @@ package br.edu.imepac.entidades;
 
 import br.edu.imepac.enums.Sexo;
 import br.edu.imepac.enums.Sim_ou_Nao;
-
 import java.sql.Date;// pra formatar o dado de tata de nascimento pro formato de Date igual ao do SQL
 public class Paciente {
     private long codigo_paciente;

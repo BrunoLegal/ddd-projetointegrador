@@ -5,7 +5,7 @@
 package br.edu.imepac.entidades;
 
 
-
+import java.sql.*;
 
 public class Consulta {
 
@@ -16,15 +16,15 @@ public class Consulta {
                     Long registro_usuario,
                     Long codigo_paciente,
                     Long codigo_medico,
-                    Long data,
-                    Long hora,
+                    Date data,
+                    Time hora,
                     String retorno,
                     String cancelado,
                     String motivo_cancelamento) {
-        this.registro_agenda = null;
-        this.registro_usuario = null;
-        this.codigo_paciente = null;
-        this.codigo_medico = null;
+        this.registro_agenda = registro_agenda;
+        this.registro_usuario = registro_usuario;
+        this.codigo_paciente = codigo_paciente;
+        this.codigo_medico = codigo_medico;
         this.data = data;
         this.hora = hora;
         this.retorno = retorno;
@@ -32,12 +32,31 @@ public class Consulta {
         this.motivo_cancelamento = motivo_cancelamento;
     }
 
-    public Consulta(Long data,
-                    Long hora,
+    public Consulta(Long registro_usuario,
+                    Long codigo_paciente,
+                    Long codigo_medico,
+                    Date data,
+                    Time hora,
+                    String retorno,
+                    String cancelado,
+                    String motivo_cancelamento) {
+        this.registro_usuario = registro_usuario;
+        this.codigo_paciente = codigo_paciente;
+        this.codigo_medico = codigo_medico;
+        this.data = data;
+        this.hora = hora;
+        this.retorno = retorno;
+        this.cancelado = cancelado;
+        this.motivo_cancelamento = motivo_cancelamento;
+    }
+
+    public Consulta(Date data,
+                    Time hora,
                     String retorno,
                     String cancelado,
                     String motivo_cancelamento) {
         this.data = data;
+        this.hora = hora;
         this.retorno = retorno;
         this.cancelado = cancelado;
         this.motivo_cancelamento = motivo_cancelamento;
@@ -48,8 +67,8 @@ public class Consulta {
     private Long registro_usuario;
     private Long codigo_paciente;
     private Long codigo_medico;
-    private Long data;
-    private Long hora;
+    private Date data;
+    private Time hora;
     private String retorno;
     private String cancelado;
     private String motivo_cancelamento;
@@ -86,19 +105,19 @@ public class Consulta {
         this.codigo_medico = codigo_medico;
     }
 
-    public Long getdata() {
+    public Date getdata() {
         return data;
     }
 
-    public void setdata(Long data) {
+    public void setdata(Date data) {
         this.data = data;
     }
 
-    public Long gethora() {
+    public Time gethora() {
         return hora;
     }
 
-    public void sethora(Long hora) {
+    public void sethora(Time hora) {
         this.hora = hora;
     }
 

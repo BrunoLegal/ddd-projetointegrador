@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.edu.imepac.daos;
+package br.edu.imepac.DAOs;
 
 import br.edu.imepac.entidades.Consulta;
 import br.edu.imepac.interfaces.IDatabaseCRUD;
@@ -47,8 +47,8 @@ public class ConsultaDao implements IDatabaseCRUD<Consulta> {
                     resultSet.getLong("registro_usuario"),
                     resultSet.getLong("codigo_paciente"),
                     resultSet.getLong("codigo_medico"),
-                    resultSet.getLong("data"),
-                    resultSet.getLong("hora"),
+                    resultSet.getDate("data"),
+                    resultSet.getTime("hora"),
                     resultSet.getString("retorno"),
                     resultSet.getString("cancelado"),
                     resultSet.getString("motivo_cancelamento"));
@@ -61,8 +61,8 @@ public class ConsultaDao implements IDatabaseCRUD<Consulta> {
         this.createConnection();
         String sql = "insert into convenio(empresa_convenio) values (NULL,NULL,NULL,NULL,?,?,?,?,?)";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
-        preparedStatement.setLong(1,entidade.getdata());
-        preparedStatement.setLong(2,entidade.gethora());
+        preparedStatement.setDate(1,entidade.getdata());
+        preparedStatement.setTime(2,entidade.gethora());
         preparedStatement.setString(3,entidade.getretorno());
         preparedStatement.setString(4,entidade.getcancelado());
         preparedStatement.setString(5,entidade.getmotivo_cancelamento());
@@ -76,8 +76,8 @@ public class ConsultaDao implements IDatabaseCRUD<Consulta> {
         this.createConnection();
         String sql = "UPDATE consulta SET data = ? WHERE hora = ? AND retorno = ? AND cancelado = ? AND motivo_cancelamento";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
-        preparedStatement.setLong(1, entidade.getdata());
-        preparedStatement.setLong(2, entidade.gethora());
+        preparedStatement.setDate(1, entidade.getdata());
+        preparedStatement.setTime(2, entidade.gethora());
         preparedStatement.setString(3, entidade.getretorno());
         preparedStatement.setString(4, entidade.getcancelado());
         preparedStatement.setString(5, entidade.getmotivo_cancelamento());
@@ -97,8 +97,8 @@ public class ConsultaDao implements IDatabaseCRUD<Consulta> {
                     resultSet.getLong("registro_usuario"),
                     resultSet.getLong("codigo_paciente"),
                     resultSet.getLong("codigo_medico"),
-                    resultSet.getLong("data"),
-                    resultSet.getLong("hora"),
+                    resultSet.getDate("data"),
+                    resultSet.getTime("hora"),
                     resultSet.getString("retorno"),
                     resultSet.getString("cancelado"),
                     resultSet.getString("motivo_cancelamento")));
