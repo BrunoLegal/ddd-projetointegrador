@@ -53,4 +53,13 @@ public class FuncionarioController {
             baseForm.showErrorInternal(sqlException.getMessage());
         }
     }
+
+    public Funcionario findFuncionario(Long id){
+        try {
+            return this.funcionarioService.findFuncionario(id);
+        }catch (SQLException sqlException){
+            baseForm.showErrorInternal(sqlException.getMessage());
+        }
+        return null;
+    }
 }

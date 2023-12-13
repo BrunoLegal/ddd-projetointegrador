@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.edu.imepac.views;
+package br.edu.imepac.views.funcionario;
 
 import br.edu.imepac.controladores.FuncionarioController;
 import br.edu.imepac.entidades.Funcionario;
 import br.edu.imepac.utils.IRolesForms;
+import br.edu.imepac.views.BaseForm;
 
 import javax.swing.*;
 import java.sql.Date;
@@ -17,13 +18,13 @@ import java.text.SimpleDateFormat;
  *
  * @author vitoraugustobarcelospovoa
  */
-public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcionario> {
+public class CadastrarFuncionario extends BaseForm implements IRolesForms<Funcionario> {
 
     FuncionarioController funcionarioController;
     /**
      * Creates new form NewJFrame
      */
-    public CadastroFuncionario() {
+    public CadastrarFuncionario() {
         funcionarioController = new FuncionarioController(this);
         initComponents();
     }
@@ -58,8 +59,6 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
         estadoCB = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         telefone1Field = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        telefone2Field = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         celularField = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
@@ -72,8 +71,7 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
         jLabel19 = new javax.swing.JLabel();
         dataNascimentoField = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Roboto Condensed", 1, 24)); // NOI18N
         jLabel1.setText("Cadastro Funcionários");
@@ -120,11 +118,7 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
 
         jLabel13.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel13.setText("Telefone 1");
-
-        jLabel14.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel14.setText("Telefone 2");
+        jLabel13.setText("Telefone");
 
         jLabel15.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(102, 102, 102));
@@ -155,6 +149,7 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
         jLabel19.setForeground(new java.awt.Color(102, 102, 102));
         jLabel19.setText("Complemento");
 
+        dataNascimentoField.setText("DD/MM/AAAA");
         dataNascimentoField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 dataNascimentoFieldFocusGained(evt);
@@ -168,7 +163,7 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 630, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(217, 217, 217)
@@ -178,9 +173,7 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nomeField)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(99, 565, Short.MAX_VALUE))
+                            .addComponent(jLabel4)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel10)
@@ -196,17 +189,13 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel13)
-                                    .addComponent(telefone1Field))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(telefone2Field)
-                                    .addComponent(jLabel14))
+                                    .addComponent(telefone1Field, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(celularField)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel15)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(celularField)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel17)
@@ -293,12 +282,10 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel14)
                     .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(telefone1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(telefone2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(celularField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -321,10 +308,13 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if(this.isFieldsFormsValidate()){
+
+        if (this.isFieldsFormsValidate()) {
             funcionarioController.saveFuncionario(createEntityViewRepresentation());
+            this.clearFields();
             this.showSuccessMessage("Funcionario Inserido com Sucesso!");
         }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void dataNascimentoFieldFocusGained(java.awt.event.FocusEvent evt) {                                                 
@@ -335,6 +325,7 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
 
     @Override
     public Funcionario createEntityViewRepresentation() {
+
         return new Funcionario(
                 nomeField.getText(),
                 rgField.getText(),
@@ -350,6 +341,24 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
                 ctpsField.getText(),
                 pisField.getText(),
                 stringToSql(dataNascimentoField.getText()));
+    }
+    private void clearFields(){
+        nomeField.setText("");
+        rgField.setText("");
+        orgaoEmissorField.setText("");
+        cpfField.setText("");
+        enderecoField.setText("");
+        numeroEnderecoField.setText("");
+        complementoField.setText("");
+        bairroField.setText("");
+        cidadeCB.setSelectedItem(1);
+        estadoCB.setSelectedItem(1);
+        telefone1Field.setText("");
+        celularField.setText("");
+        ctpsField.setText("");
+        pisField.setText("");
+        dataNascimentoField.setText("DD/MM/AAAA");
+
     }
 
     @Override
@@ -396,13 +405,22 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
         if(dataNascimentoField.getText().isBlank() || dataNascimentoField.getText().isEmpty() || dataNascimentoField.getText().equals("DD/MM/AAAA")){
             JOptionPane.showMessageDialog(null, "Preencha a data de nascimento!", "Alerta!", JOptionPane.ERROR_MESSAGE);
             return false;
+        }else if (stringToSql(dataNascimentoField.getText()) == null){
+            dataNascimentoField.setText("DD/MM/AAAA");
+            return false;
         }
         return true;
     }
 
     private Date stringToSql(String stringDate){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        Date sqlDate = new Date(sdf.getCalendar().getTimeInMillis());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+        Date sqlDate = null;
+        try {
+            sqlDate = new Date(sdf.parse(stringDate).getTime());
+        } catch (ParseException e) {
+            this.showWarningMessage("Insira uma data de nascimento válida!");
+        }
 
         return sqlDate;
     }
@@ -424,13 +442,13 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -452,7 +470,7 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroFuncionario().setVisible(true);
+                new CadastrarFuncionario().setVisible(true);
             }
         });
     }
@@ -473,7 +491,6 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -491,6 +508,5 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
     private javax.swing.JTextField pisField;
     private javax.swing.JTextField rgField;
     private javax.swing.JTextField telefone1Field;
-    private javax.swing.JTextField telefone2Field;
     // End of variables declaration//GEN-END:variables
 }

@@ -22,7 +22,7 @@ public abstract class BaseForm extends javax.swing.JFrame {
     }
 
     public void showWarningMessage(String message) {
-        JOptionPane.showMessageDialog(null, message, "Sucesso!", WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, message, "Aviso!", WARNING_MESSAGE);
     }
 
     public int showConfirmYesOrNoDialog(String message) {

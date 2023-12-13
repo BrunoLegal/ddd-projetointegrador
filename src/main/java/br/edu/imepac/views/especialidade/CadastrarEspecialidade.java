@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.edu.imepac.views;
+package br.edu.imepac.views.especialidade;
 
 import br.edu.imepac.controladores.EspecialidadeController;
 import br.edu.imepac.entidades.Especialidade;
 import br.edu.imepac.utils.IRolesForms;
+import br.edu.imepac.views.BaseForm;
 
 import javax.swing.*;
 
@@ -37,8 +38,7 @@ public class CadastrarEspecialidade extends BaseForm implements IRolesForms<Espe
         inserirEspecialidade = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         inserirEspecialidade.setText("Inserir");
         inserirEspecialidade.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +59,7 @@ public class CadastrarEspecialidade extends BaseForm implements IRolesForms<Espe
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(descEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(inserirEspecialidade)
@@ -74,7 +74,7 @@ public class CadastrarEspecialidade extends BaseForm implements IRolesForms<Espe
                 .addComponent(descEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(inserirEspecialidade)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -89,6 +89,22 @@ public class CadastrarEspecialidade extends BaseForm implements IRolesForms<Espe
         }
     }//GEN-LAST:event_inserirEspecialidadeActionPerformed
 
+    @Override
+    public Especialidade createEntityViewRepresentation() {
+        return new Especialidade(this.descEspecialidade.getText());
+    }
+
+    @Override
+    public boolean isFieldsFormsValidate() {
+        if(this.descEspecialidade.getText().isBlank() || this.descEspecialidade.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Insira a Especialidade a ser inserida primeiro!", "Alerta!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+    private void resetFields(){
+        descEspecialidade.setText("");
+    }
     /**
      * @param args the command line arguments
      */
@@ -129,22 +145,5 @@ public class CadastrarEspecialidade extends BaseForm implements IRolesForms<Espe
     private javax.swing.JTextField descEspecialidade;
     private javax.swing.JButton inserirEspecialidade;
     private javax.swing.JLabel jLabel1;
-
-    @Override
-    public Especialidade createEntityViewRepresentation() {
-        return new Especialidade(this.descEspecialidade.getText());
-    }
-
-    @Override
-    public boolean isFieldsFormsValidate() {
-        if(this.descEspecialidade.getText().isBlank() || this.descEspecialidade.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Insira a Especialidade a ser inserida primeiro!", "Alerta!", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        return true;
-    }
-    private void resetFields(){
-        descEspecialidade.setText("");
-    }
     // End of variables declaration//GEN-END:variables
 }
