@@ -402,8 +402,14 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
     }
 
     private Date stringToSql(String stringDate){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        Date sqlDate = new Date(sdf.getCalendar().getTimeInMillis());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+        Date sqlDate = null;
+        try {
+            sqlDate = new Date(sdf.parse(stringDate).getTime());
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
 
         return sqlDate;
     }
