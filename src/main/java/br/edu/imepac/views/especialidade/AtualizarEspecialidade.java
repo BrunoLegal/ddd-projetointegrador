@@ -4,17 +4,29 @@
  */
 package br.edu.imepac.views.especialidade;
 
+import br.edu.imepac.controladores.EspecialidadeController;
+import br.edu.imepac.entidades.Especialidade;
+import br.edu.imepac.utils.IRolesForms;
+import br.edu.imepac.views.BaseForm;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+
 /**
  *
  * @author bruno
  */
-public class AtualizarEspecialidade extends javax.swing.JFrame {
+public class AtualizarEspecialidade extends BaseForm implements IRolesForms<Especialidade> {
+    EspecialidadeController especialidadeController;
 
     /**
      * Creates new form AtualizarEspecialidade
      */
     public AtualizarEspecialidade() {
         initComponents();
+        this.especialidadeController = new EspecialidadeController(this);
+        this.loadTable();
     }
 
     /**
@@ -26,22 +38,155 @@ public class AtualizarEspecialidade extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        especialidadeTable = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        descField = new javax.swing.JTextField();
+        atualizarButton = new javax.swing.JButton();
+        deletarButton = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jLabel1.setText("Atualizar Especialidade");
+
+        especialidadeTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Descrição"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(especialidadeTable);
+        if (especialidadeTable.getColumnModel().getColumnCount() > 0) {
+            especialidadeTable.getColumnModel().getColumn(0).setMinWidth(30);
+            especialidadeTable.getColumnModel().getColumn(0).setPreferredWidth(40);
+            especialidadeTable.getColumnModel().getColumn(0).setMaxWidth(50);
+        }
+
+        jLabel2.setText("Descrição");
+
+        atualizarButton.setText("Atualizar");
+        atualizarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atualizarButtonActionPerformed(evt);
+            }
+        });
+
+        deletarButton.setText("Deletar");
+        deletarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletarButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(descField, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(atualizarButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(deletarButton)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(descField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(atualizarButton)
+                    .addComponent(deletarButton))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void atualizarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarButtonActionPerformed
+        if(isFieldsFormsValidate()){
+            try{
+                if(this.showConfirmYesOrNoDialog("Deseja mesmo Atualizar a especialidade " + especialidadeTable.getValueAt(especialidadeTable.getSelectedRow(),1)+"?") == 0) {
+                    especialidadeController.updateEspecialidade(createEntityViewRepresentation());
+                    this.showSuccessMessage("Especialidade Alterada");
+                    descField.setText("");
+                    this.loadTable();
+                }
+            }catch (ArrayIndexOutOfBoundsException e){
+                this.showWarningMessage("Selecione uma especialidade para alterar!");
+            }
+        }
+    }//GEN-LAST:event_atualizarButtonActionPerformed
+
+    private void deletarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarButtonActionPerformed
+        try {
+            Long id = Long.parseLong(especialidadeTable.getValueAt(especialidadeTable.getSelectedRow(),0).toString());
+            if(this.showConfirmYesOrNoDialog("Deseja mesmo deletar a especialidade " + especialidadeTable.getValueAt(especialidadeTable.getSelectedRow(), 1)+"?")==0){
+                Especialidade especialidade = especialidadeController.findEspecialidade(id);
+                especialidadeController.deleteEspecialidae(especialidade);
+                this.loadTable();
+                showSuccessMessage("Especialidade removida com sucesso!");
+            }
+
+        }catch (ArrayIndexOutOfBoundsException e){
+            showWarningMessage("Selecione uma especialidade para deletar!");
+        }
+    }//GEN-LAST:event_deletarButtonActionPerformed
+    private void loadTable() {
+        ArrayList<Especialidade> especialidades = this.especialidadeController.findAllEspecialidade();
+
+        DefaultTableModel model = (DefaultTableModel) especialidadeTable.getModel();
+        model.setRowCount(0);
+        for(Especialidade especialidade: especialidades){
+            model.addRow(new Object[]{
+                    especialidade.getCodigo_especialidade(),
+                    especialidade.getDescricao_especialidade()
+            });
+        }
+    }
+    @Override
+    public Especialidade createEntityViewRepresentation() {
+        return new Especialidade(Long.parseLong(especialidadeTable.getValueAt(especialidadeTable.getSelectedRow(), 0).toString()), descField.getText());
+    }
+
+    @Override
+    public boolean isFieldsFormsValidate() {
+        if(this.descField.getText().isBlank() || this.descField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Selecione a Especialidade a ser inserida primeiro!", "Alerta!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
     /**
      * @param args the command line arguments
      */
@@ -78,5 +223,12 @@ public class AtualizarEspecialidade extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton atualizarButton;
+    private javax.swing.JButton deletarButton;
+    private javax.swing.JTextField descField;
+    private javax.swing.JTable especialidadeTable;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
