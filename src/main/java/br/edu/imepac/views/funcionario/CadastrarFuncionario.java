@@ -18,13 +18,13 @@ import java.text.SimpleDateFormat;
  *
  * @author vitoraugustobarcelospovoa
  */
-public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcionario> {
+public class CadastrarFuncionario extends BaseForm implements IRolesForms<Funcionario> {
 
     FuncionarioController funcionarioController;
     /**
      * Creates new form NewJFrame
      */
-    public CadastroFuncionario() {
+    public CadastrarFuncionario() {
         funcionarioController = new FuncionarioController(this);
         initComponents();
     }
@@ -431,13 +431,13 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -459,7 +459,7 @@ public class CadastroFuncionario extends BaseForm implements IRolesForms<Funcion
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroFuncionario().setVisible(true);
+                new CadastrarFuncionario().setVisible(true);
             }
         });
     }

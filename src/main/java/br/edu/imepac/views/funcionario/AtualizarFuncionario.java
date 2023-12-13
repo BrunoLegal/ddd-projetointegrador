@@ -31,9 +31,27 @@ public class AtualizarFuncionario extends BaseForm {
         this.loadTable();
     }
 
+    private void clearFields(){
+        nomeField.setText("");
+        rgField.setText("");
+        orgaoemissorField.setText("");
+        cpfField.setText("");
+        enderecoField.setText("");
+        numeroField.setText("");
+        complementoField.setText("");
+        bairroField.setText("");
+        cidadeField.setText("");
+        estadoCB.setSelectedItem(1);
+        telefoneField.setText("");
+        ctpsField.setText("");
+        pisField.setText("");
+        dataNascimentoField.setText("DD/MM/AAAA");
+
+    }
+
     public Funcionario createEntityViewRepresentation() {
         return new Funcionario(
-                (Long)funcionarioTable.getValueAt(funcionarioTable.getSelectedRow(), funcionarioTable.getSelectedColumn()),
+                Long.parseLong(funcionarioTable.getValueAt(funcionarioTable.getSelectedRow(), 0).toString()),
                 nomeField.getText(),
                 rgField.getText(),
                 orgaoemissorField.getText(),
@@ -264,6 +282,11 @@ public class AtualizarFuncionario extends BaseForm {
         });
 
         deletarButton.setText("Deletar");
+        deletarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletarButtonActionPerformed(evt);
+            }
+        });
 
         preencherButton.setText("Preencher");
         preencherButton.addActionListener(new java.awt.event.ActionListener() {
@@ -429,12 +452,12 @@ public class AtualizarFuncionario extends BaseForm {
                             .addComponent(dataNascimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ctpsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pisField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(atualizarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(deletarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(preencherButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(68, 68, 68))
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -448,8 +471,16 @@ public class AtualizarFuncionario extends BaseForm {
     private void atualizarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarButtonActionPerformed
         // TODO add your handling code here:
         if(isFieldsFormsValidate()){
-            funcionarioController.updateFuncionario(createEntityViewRepresentation());
-            this.showSuccessMessage("Funcionario Atualizado");
+            try {
+                if(this.showConfirmYesOrNoDialog("Deseja mesmo atualizar os dados do funcionario " + funcionarioTable.getValueAt(funcionarioTable.getSelectedRow(), 1)+"?")==0) {
+                    funcionarioController.updateFuncionario(createEntityViewRepresentation());
+                    this.showSuccessMessage("Funcionario Atualizado");
+                    this.clearFields();
+                    this.loadTable();
+                }
+            } catch (ArrayIndexOutOfBoundsException e) {
+                this.showWarningMessage("Selecione um funcionario para atualizar!");
+            }
         }
     }//GEN-LAST:event_atualizarButtonActionPerformed
 
@@ -458,23 +489,55 @@ public class AtualizarFuncionario extends BaseForm {
     }//GEN-LAST:event_funcionarioTableFocusGained
 
     private void preencherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preencherButtonActionPerformed
-        int row = funcionarioTable.getSelectedRow();
-        nomeField.setText(funcionarioTable.getValueAt(row, 1).toString());
-        rgField.setText(funcionarioTable.getValueAt(row,2).toString());
-        orgaoemissorField.setText(funcionarioTable.getValueAt(row,3).toString());
-        cpfField.setText(funcionarioTable.getValueAt(row,4).toString());
-        enderecoField.setText(funcionarioTable.getValueAt(row,5).toString());
-        numeroField.setText(funcionarioTable.getValueAt(row,6).toString());
-        complementoField.setText(funcionarioTable.getValueAt(row,7).toString());
-        bairroField.setText(funcionarioTable.getValueAt(row,8).toString());
-        cidadeField.setText(funcionarioTable.getValueAt(row,9).toString());
-        estadoCB.setSelectedItem(funcionarioTable.getValueAt(row,10));
-        telefoneField.setText(funcionarioTable.getValueAt(row,11).toString());
-        celularField.setText(funcionarioTable.getValueAt(row,12).toString());
-        ctpsField.setText(funcionarioTable.getValueAt(row,13).toString());
-        pisField.setText(funcionarioTable.getValueAt(row,14).toString());
-        dataNascimentoField.setText(funcionarioTable.getValueAt(row,15).toString());
+        try {
+            int row = funcionarioTable.getSelectedRow();
+            nomeField.setText(funcionarioTable.getValueAt(row, 1).toString());
+            rgField.setText(funcionarioTable.getValueAt(row, 2).toString());
+            orgaoemissorField.setText(funcionarioTable.getValueAt(row, 3).toString());
+            cpfField.setText(funcionarioTable.getValueAt(row, 4).toString());
+            enderecoField.setText(funcionarioTable.getValueAt(row, 5).toString());
+            numeroField.setText(funcionarioTable.getValueAt(row, 6).toString());
+            complementoField.setText(funcionarioTable.getValueAt(row, 7).toString());
+            bairroField.setText(funcionarioTable.getValueAt(row, 8).toString());
+            cidadeField.setText(funcionarioTable.getValueAt(row, 9).toString());
+            estadoCB.setSelectedItem(funcionarioTable.getValueAt(row, 10));
+            telefoneField.setText(funcionarioTable.getValueAt(row, 11).toString());
+            celularField.setText(funcionarioTable.getValueAt(row, 12).toString());
+            ctpsField.setText(funcionarioTable.getValueAt(row, 13).toString());
+            pisField.setText(funcionarioTable.getValueAt(row, 14).toString());
+
+            String unfDate = funcionarioTable.getValueAt(row, 15).toString();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+            java.util.Date date = null;
+            try {
+                date = sdf.parse(unfDate);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+
+            sdf.applyPattern("dd/MM/yyyy");
+            dataNascimentoField.setText(sdf.format(date));
+
+        }catch (ArrayIndexOutOfBoundsException e){
+            this.showWarningMessage("Selecione um funcionario para auto preencher os dados!");
+        }
     }//GEN-LAST:event_preencherButtonActionPerformed
+
+    private void deletarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarButtonActionPerformed
+        // TODO add your handling code here:
+            try {
+                Long id = Long.parseLong(funcionarioTable.getValueAt(funcionarioTable.getSelectedRow(), 0).toString());
+                if (showConfirmYesOrNoDialog("Deseja mesmo apagar o funcionario " + funcionarioTable.getValueAt(funcionarioTable.getSelectedRow(), 1) + "?") == 0) {
+                    Funcionario funcionario = funcionarioController.findFuncionario(id);
+                    funcionarioController.deleteFuncionario(funcionario);
+                    loadTable();
+                    showSuccessMessage("Funcionario " + funcionario.getNome() + " Deletado com sucesso!" );
+                }
+            }catch (ArrayIndexOutOfBoundsException e){
+                this.showWarningMessage("Selecione um funcionario para apagar!");
+            }
+    }//GEN-LAST:event_deletarButtonActionPerformed
 
     /**
      * @param args the command line arguments

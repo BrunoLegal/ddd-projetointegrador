@@ -4,7 +4,7 @@
  */
 package br.edu.imepac.views;
 
-import br.edu.imepac.views.funcionario.CadastroFuncionario;
+import br.edu.imepac.views.funcionario.CadastrarFuncionario;
 
 /**
  *
@@ -91,7 +91,7 @@ public class DesktopMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-      new CadastroFuncionario().setVisible(true);   // TODO add your handling code here:
+      new CadastrarFuncionario().setVisible(true);   // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed

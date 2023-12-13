@@ -224,7 +224,7 @@
                           <Component id="ctpsField" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="pisField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="atualizarButton" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                           <Component id="deletarButton" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
@@ -232,7 +232,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -526,6 +526,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Deletar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deletarButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="preencherButton">
       <Properties>
