@@ -77,7 +77,7 @@ public class AtualizarFuncionario extends BaseForm implements IRolesForms<Funcio
         try {
             sqlDate = new Date(sdf.parse(stringDate).getTime());
         } catch (ParseException e) {
-            throw new RuntimeException(e);
+            this.showWarningMessage("Insira uma data válida!");
         }
 
         return sqlDate;
@@ -129,6 +129,9 @@ public class AtualizarFuncionario extends BaseForm implements IRolesForms<Funcio
         }
         if(dataNascimentoField.getText().isBlank() || dataNascimentoField.getText().isEmpty() || dataNascimentoField.getText().equals("DD/MM/AAAA")){
             JOptionPane.showMessageDialog(null, "Preencha a data de nascimento!", "Alerta!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if(stringToSql(dataNascimentoField.getText()) == null){
             return false;
         }
         return true;
