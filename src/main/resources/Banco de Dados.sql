@@ -3,8 +3,8 @@ create database hospital;
 
 use hospital;
 
-create user "admin"@"localhost" identified by "1234";
-grant all privileges on *.* to "admin"@"localhost" with grant option;
+create user "admin" identified by "1234";
+grant all privileges on *.* to "admin" with grant option;
 
 create table funcionarios(
 codigo_funcionario int primary key auto_increment,
