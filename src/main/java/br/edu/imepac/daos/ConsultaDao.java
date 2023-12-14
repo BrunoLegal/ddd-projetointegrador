@@ -59,13 +59,16 @@ public class ConsultaDao implements IDatabaseCRUD<Consulta> {
     @Override
     public int save(Consulta entidade) throws SQLException {
         this.createConnection();
-        String sql = "insert into convenio(empresa_convenio) values (NULL,NULL,NULL,NULL,?,?,?,?,?)";
+        String sql = "insert into convenio(empresa_convenio) values (NULL,?,?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
-        preparedStatement.setLong(1,entidade.getdata());
-        preparedStatement.setLong(2,entidade.gethora());
-        preparedStatement.setString(3,entidade.getretorno());
-        preparedStatement.setString(4,entidade.getcancelado());
-        preparedStatement.setString(5,entidade.getmotivo_cancelamento());
+        preparedStatement.setLong(1,entidade.getregistro_usuario());
+        preparedStatement.setLong(2,entidade.getcodigo_paciente());
+        preparedStatement.setLong(3,entidade.getcodigo_medico());
+        preparedStatement.setLong(4,entidade.getdata());
+        preparedStatement.setLong(5,entidade.gethora());
+        preparedStatement.setString(6,entidade.getretorno());
+        preparedStatement.setString(7,entidade.getcancelado());
+        preparedStatement.setString(8,entidade.getmotivo_cancelamento());
         int result = preparedStatement.executeUpdate();
         this.destroyConnection();
         return result;
@@ -74,17 +77,21 @@ public class ConsultaDao implements IDatabaseCRUD<Consulta> {
     @Override
     public int update(Consulta entidade) throws SQLException {
         this.createConnection();
-        String sql = "UPDATE consulta SET data = ? WHERE hora = ? AND retorno = ? AND cancelado = ? AND motivo_cancelamento";
+        String sql = "UPDATE consulta SET registro_usuario = ? WHERE codigo_paciente = ? codigo_medico = ? data = ? hora = ? AND retorno = ? AND cancelado = ? AND motivo_cancelamento";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
-        preparedStatement.setLong(1, entidade.getdata());
-        preparedStatement.setLong(2, entidade.gethora());
-        preparedStatement.setString(3, entidade.getretorno());
-        preparedStatement.setString(4, entidade.getcancelado());
-        preparedStatement.setString(5, entidade.getmotivo_cancelamento());
+        preparedStatement.setLong(1, entidade.getregistro_usuario());
+        preparedStatement.setLong(2, entidade.getcodigo_paciente());
+        preparedStatement.setLong(3, entidade.getcodigo_medico());
+        preparedStatement.setLong(4, entidade.getdata());
+        preparedStatement.setLong(5, entidade.gethora());
+        preparedStatement.setString(6, entidade.getretorno());
+        preparedStatement.setString(7, entidade.getcancelado());
+        preparedStatement.setString(8, entidade.getmotivo_cancelamento());
         int result = preparedStatement.executeUpdate();
         this.destroyConnection();
         return result;
     }
+    
     @Override
     public ArrayList<Consulta> findAll() throws SQLException {
         this.createConnection();

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.edu.imepac.DAOs;
+package br.edu.imepac.daos;
 
 import br.edu.imepac.entidades.Paciente;
 import br.edu.imepac.interfaces.IDatabaseCRUD;
@@ -73,8 +73,8 @@ public class PacienteDao implements IDatabaseCRUD<Paciente> {
                     resultSet.getString("telefone"),
                     resultSet.getString("celular"),
                     resultSet.getDate("data_nascimento"),
-                    Sexo.valueOf(resultSet.getString("sexo")),
-                    Sim_ou_Nao.valueOf(resultSet.getString("tem_convenio")),
+                    resultSet.getString("sexo"),
+                    resultSet.getString("tem_convenio"),
                     resultSet.getLong("codigo_convenio"));
         }
         this.destroyConnection();
@@ -154,8 +154,8 @@ public class PacienteDao implements IDatabaseCRUD<Paciente> {
                     resultSet.getString("telefone"),
                     resultSet.getString("celular"),
                     resultSet.getDate("data_nascimento"),
-                    Sexo.valueOf(resultSet.getString("sexo")),
-                    Sim_ou_Nao.valueOf(resultSet.getString("tem_convenio")),
+                    resultSet.getString("sexo"),
+                    resultSet.getString("tem_convenio"),
                     resultSet.getLong("codigo_convenio")));
         }
         this.destroyConnection();

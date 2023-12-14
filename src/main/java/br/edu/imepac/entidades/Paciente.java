@@ -18,8 +18,8 @@ public class Paciente {
     private String telefone;
     private String celular;
     private Date dataNascimento;
-    private Sexo sexo;// esse aqui depois tem que alterar pra só receber M (sexo masculino) ou F (sexo feminino)
-    private Sim_ou_Nao possuiConvenio;
+    private String sexo;// esse aqui depois tem que alterar pra só receber M (sexo masculino) ou F (sexo feminino)
+    private String possuiConvenio;
     private long convenio;
 
     public long getCodigo_paciente() {
@@ -126,19 +126,19 @@ public class Paciente {
         this.dataNascimento = dataNascimento;
     }
 
-    public Sexo getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(Sexo sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
-    public Sim_ou_Nao getPossuiConvenio() {
+    public String getPossuiConvenio() {
         return possuiConvenio;
     }
 
-    public void setPossuiConvenio(Sim_ou_Nao possuiConvenio) {
+    public void setPossuiConvenio(String possuiConvenio) {
         this.possuiConvenio = possuiConvenio;
     }
 
@@ -150,7 +150,7 @@ public class Paciente {
         this.convenio = convenio;
     }
 
-    public Paciente(long codigo_paciente, String nome, String RG, String orgaoEmissor, String CPF, String endereco, String complemento, String bairro, String cidade, String estado, String telefone, String celular, Date dataNascimento, Sexo sexo, Sim_ou_Nao possuiConvenio, long convenio) {
+    public Paciente(long codigo_paciente, String nome, String RG, String orgaoEmissor, String CPF, String endereco, String complemento, String bairro, String cidade, String estado, String telefone, String celular, Date dataNascimento, String sexo, String possuiConvenio, long convenio) {
         this.codigo_paciente = codigo_paciente;
         this.nome = nome;
         this.RG = RG;
@@ -169,7 +169,7 @@ public class Paciente {
         this.convenio = convenio;
     }
 
-    public Paciente(String nome, String RG, String orgaoEmissor, String CPF, String endereco, String complemento, String bairro, String cidade, String estado, String telefone, String celular, Date dataNascimento, Sexo sexo, Sim_ou_Nao possuiConvenio, long convenio) {
+    public Paciente(String nome, String RG, String orgaoEmissor, String CPF, String endereco, String complemento, String bairro, String cidade, String estado, String telefone, String celular, Date dataNascimento, String sexo, String possuiConvenio, long convenio) {
         this.nome = nome;
         this.RG = RG;
         this.orgaoEmissor = orgaoEmissor;

@@ -28,7 +28,7 @@ public class ConvenioDao implements IDatabaseCRUD<Convenio>{
     @Override
     public int delete(Long id) throws SQLException {
         this.createConnection();
-        String sql = "delete from convenio where codigo_convenio = ?";
+        String sql = "delete from convenios where codigo_convenio = ?";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setLong(1, id);
         int result = preparedStatement.executeUpdate();
@@ -38,7 +38,7 @@ public class ConvenioDao implements IDatabaseCRUD<Convenio>{
     @Override
     public Convenio read(Long id) throws SQLException {
         this.createConnection();
-        String sql = "select * from convenio where codigo_convenio = ?";
+        String sql = "select * from convenios where codigo_convenio = ?";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setLong(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -55,7 +55,7 @@ public class ConvenioDao implements IDatabaseCRUD<Convenio>{
     @Override
     public int save(Convenio entidade) throws SQLException {
         this.createConnection();
-        String sql = "insert into convenio(empresa_convenio) values (NULL,?,?,?)";
+        String sql = "insert into convenios values (NULL,?,?,?)";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setString(1,entidade.getempresa_convenio());
         preparedStatement.setString(2,entidade.getcnpj());
@@ -68,12 +68,12 @@ public class ConvenioDao implements IDatabaseCRUD<Convenio>{
     @Override
     public int update(Convenio entidade) throws SQLException {
         this.createConnection();
-        String sql = "UPDATE convenio SET empresa_convenio = ? WHERE codigo_convenio = ? AND cnpj = ? AND telefone = ?";
+        String sql = "UPDATE convenios SET empresa_convenio = ?, cnpj = ?, telefone = ? WHERE codigo_convenio = ?";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setString(1, entidade.getempresa_convenio());
-        preparedStatement.setLong(2, entidade.getcodigo_convenio());
-        preparedStatement.setString(3, entidade.getcnpj());
-        preparedStatement.setString(4, entidade.gettelefone());
+        preparedStatement.setString(2, entidade.getcnpj());
+        preparedStatement.setString(3, entidade.gettelefone());
+        preparedStatement.setLong(4, entidade.getcodigo_convenio());
         int result = preparedStatement.executeUpdate();
         this.destroyConnection();
         return result;
@@ -81,13 +81,13 @@ public class ConvenioDao implements IDatabaseCRUD<Convenio>{
     @Override
     public ArrayList<Convenio> findAll() throws SQLException {
         this.createConnection();
-        String sql = "select * from convenio";
+        String sql = "select * from convenios";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         ResultSet resultSet = preparedStatement.executeQuery();
         ArrayList<Convenio> convenio = new ArrayList<>();
         while (resultSet.next()) {
             convenio.add(new Convenio(resultSet.getLong("codigo_convenio"),
-                                      resultSet.getString("descricao_convenio"),
+                                      resultSet.getString("empresa_convenio"),
                                       resultSet.getString("cnpj"),
                                       resultSet.getString("telefone")));
         }

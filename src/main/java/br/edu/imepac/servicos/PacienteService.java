@@ -4,7 +4,7 @@
  */
 package br.edu.imepac.servicos;
 
-import br.edu.imepac.DAOs.PacienteDao;
+import br.edu.imepac.daos.PacienteDao;
 import br.edu.imepac.entidades.Paciente;
 
 import java.sql.SQLException;
