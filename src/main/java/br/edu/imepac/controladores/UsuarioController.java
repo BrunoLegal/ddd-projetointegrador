@@ -4,6 +4,7 @@
  */
 package br.edu.imepac.controladores;
 
+import br.edu.imepac.entidades.Funcionario;
 import br.edu.imepac.entidades.Usuario;
 import br.edu.imepac.servicos.UsuarioService;
 import br.edu.imepac.views.BaseForm;
@@ -57,7 +58,7 @@ public class UsuarioController {
         return null;
     }
 
-    public ArrayList findAllUsuario(){
+    public ArrayList<Usuario> findAllUsuario(){
         try{
             return this.usuarioService.findAllUsuario();
         }catch (SQLException e){

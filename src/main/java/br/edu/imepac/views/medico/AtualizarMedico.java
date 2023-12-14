@@ -129,7 +129,10 @@ public class AtualizarMedico extends BaseForm implements IRolesForms<Medico> {
                 return canEdit [columnIndex];
             }
         });
+        medicoTable.setColumnSelectionAllowed(true);
+        medicoTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(medicoTable);
+        medicoTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         preencherButton.setBackground(new java.awt.Color(51, 153, 255));
         preencherButton.setForeground(new java.awt.Color(255, 255, 255));

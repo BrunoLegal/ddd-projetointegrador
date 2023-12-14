@@ -232,6 +232,7 @@ public class AtualizarFuncionario extends BaseForm implements IRolesForms<Funcio
             }
         });
         funcionarioTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        funcionarioTable.setColumnSelectionAllowed(true);
         funcionarioTable.getTableHeader().setReorderingAllowed(false);
         funcionarioTable.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -239,6 +240,7 @@ public class AtualizarFuncionario extends BaseForm implements IRolesForms<Funcio
             }
         });
         jScrollPane1.setViewportView(funcionarioTable);
+        funcionarioTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jLabel2.setText("Nome");
 
