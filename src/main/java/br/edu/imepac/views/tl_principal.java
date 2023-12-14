@@ -27,6 +27,9 @@ public class tl_principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jCheckBoxMenuItem10 = new javax.swing.JCheckBoxMenuItem();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
@@ -35,7 +38,10 @@ public class tl_principal extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem11 = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jCheckBoxMenuItem3 = new javax.swing.JCheckBoxMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jCheckBoxMenuItem8 = new javax.swing.JCheckBoxMenuItem();
@@ -50,8 +56,54 @@ public class tl_principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu2.setText("imagem");
+        jPanel1.setBackground(new java.awt.Color(51, 204, 255));
 
+        jPanel2.setBackground(new java.awt.Color(0, 153, 204));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel3.setBackground(new java.awt.Color(153, 204, 255));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jMenu2.setIcon(new javax.swing.ImageIcon("C:\\Users\\homar\\Documents\\GitHub\\ddd-projetointegrador\\Telas\\imagem\\CP.png")); // NOI18N
+        jMenu2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jMenu2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        jMenu4.setIcon(new javax.swing.ImageIcon("C:\\Users\\homar\\Documents\\GitHub\\ddd-projetointegrador\\Telas\\imagem\\lado1.png")); // NOI18N
         jMenu4.setText("Agendamento");
 
         jCheckBoxMenuItem9.setSelected(true);
@@ -63,6 +115,7 @@ public class tl_principal extends javax.swing.JFrame {
 
         jMenu2.add(jMenu4);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon("C:\\Users\\homar\\Documents\\GitHub\\ddd-projetointegrador\\Telas\\imagem\\lado1.png")); // NOI18N
         jMenu3.setText("Paciente");
 
         jCheckBoxMenuItem2.setSelected(true);
@@ -73,16 +126,46 @@ public class tl_principal extends javax.swing.JFrame {
         jCheckBoxMenuItem11.setText("Prontuário");
         jMenu3.add(jCheckBoxMenuItem11);
 
+        jMenuItem2.setText("Cadastrar Exame");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem2);
+
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("Cadastrar Paciente");
         jMenu3.add(jCheckBoxMenuItem1);
 
+        jMenuItem3.setText("Prontuário");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem3);
+
+        jMenuItem4.setText("Receituário");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem4);
+
         jCheckBoxMenuItem3.setSelected(true);
         jCheckBoxMenuItem3.setText("Registro de Atendimento");
+        jCheckBoxMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jCheckBoxMenuItem3);
 
         jMenu2.add(jMenu3);
 
+        jMenu6.setIcon(new javax.swing.ImageIcon("C:\\Users\\homar\\Documents\\GitHub\\ddd-projetointegrador\\Telas\\imagem\\lado1.png")); // NOI18N
         jMenu6.setText("Financeiro");
 
         jCheckBoxMenuItem8.setSelected(true);
@@ -91,6 +174,7 @@ public class tl_principal extends javax.swing.JFrame {
 
         jMenu2.add(jMenu6);
 
+        jMenu5.setIcon(new javax.swing.ImageIcon("C:\\Users\\homar\\Documents\\GitHub\\ddd-projetointegrador\\Telas\\imagem\\lado1.png")); // NOI18N
         jMenu5.setText("RH");
 
         jCheckBoxMenuItem4.setSelected(true);
@@ -124,11 +208,11 @@ public class tl_principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -137,6 +221,22 @@ public class tl_principal extends javax.swing.JFrame {
     private void jCheckBoxMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBoxMenuItem7ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+new tl_prontuario().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+new tl_receituario().setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem3ActionPerformed
+new tl_registroDeAtendimento().setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxMenuItem3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+new tl_cadastroDeexame().setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,5 +292,11 @@ public class tl_principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
