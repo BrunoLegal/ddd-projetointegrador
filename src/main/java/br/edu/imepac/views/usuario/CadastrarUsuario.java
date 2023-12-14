@@ -301,6 +301,7 @@ public class CadastrarUsuario extends BaseForm implements IRolesForms<Usuario> {
             this.usuarioController.addUsuario(createEntityViewRepresentation());
             this.showSuccessMessage("Usuario cadastrado com sucesso");
             this.clearFields();
+            autocheck();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

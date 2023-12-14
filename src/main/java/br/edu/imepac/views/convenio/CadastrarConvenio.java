@@ -53,7 +53,7 @@ import java.text.SimpleDateFormat;
         jLabel4 = new javax.swing.JLabel();
         telefoneField = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton1.setText("Inserir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -124,8 +124,15 @@ import java.text.SimpleDateFormat;
          if(this.isFieldsFormsValidate()){
             convenioController.addConvenio(createEntityViewRepresentation());
             this.showSuccessMessage("Convenio Inserido com Sucesso!");
+            this.clearFields();
         }
     }//GEN-LAST:event_InserirConvenioActionPerformed
+
+    private void clearFields(){
+        nomeField.setText("");
+        cnpjField.setText("");
+        telefoneField.setText("");
+    }
 
       @Override
     public Convenio createEntityViewRepresentation() {

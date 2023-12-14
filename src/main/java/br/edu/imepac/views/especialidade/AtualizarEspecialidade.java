@@ -66,10 +66,8 @@ public class AtualizarEspecialidade extends BaseForm implements IRolesForms<Espe
                 return canEdit [columnIndex];
             }
         });
-        especialidadeTable.setColumnSelectionAllowed(true);
         especialidadeTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(especialidadeTable);
-        especialidadeTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (especialidadeTable.getColumnModel().getColumnCount() > 0) {
             especialidadeTable.getColumnModel().getColumn(0).setMinWidth(30);
             especialidadeTable.getColumnModel().getColumn(0).setPreferredWidth(40);

@@ -67,7 +67,7 @@ public class AtualizarUsuario extends BaseForm implements IRolesForms<Usuario> {
         selecionarButton = new javax.swing.JButton();
         deletarButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         cancelamentoCheckBox.setText("Cancelamento Consulta");
         cancelamentoCheckBox.setEnabled(false);
@@ -164,10 +164,8 @@ public class AtualizarUsuario extends BaseForm implements IRolesForms<Usuario> {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setColumnSelectionAllowed(true);
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setPreferredWidth(40);
         }

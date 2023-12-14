@@ -57,7 +57,7 @@ public class AtualizarMedico extends BaseForm implements IRolesForms<Medico> {
         preencherButton = new javax.swing.JButton();
         removerButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         atualizarButton.setBackground(new java.awt.Color(51, 153, 255));
         atualizarButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -129,10 +129,8 @@ public class AtualizarMedico extends BaseForm implements IRolesForms<Medico> {
                 return canEdit [columnIndex];
             }
         });
-        medicoTable.setColumnSelectionAllowed(true);
         medicoTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(medicoTable);
-        medicoTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         preencherButton.setBackground(new java.awt.Color(51, 153, 255));
         preencherButton.setForeground(new java.awt.Color(255, 255, 255));
