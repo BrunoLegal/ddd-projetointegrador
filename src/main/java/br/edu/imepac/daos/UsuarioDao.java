@@ -30,7 +30,7 @@ public class UsuarioDao implements IDatabaseCRUD<Usuario> {
     @Override
     public int delete(Long id) throws SQLException {
         this.createConnection();
-        String sql = "delete from Usuarios where Registro_Usuario = ?";
+        String sql = "delete from usuarios where Registro_Usuario = ?";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setLong(1, id);
         int result = preparedStatement.executeUpdate();
@@ -41,26 +41,26 @@ public class UsuarioDao implements IDatabaseCRUD<Usuario> {
     @Override
     public Usuario read(Long id) throws SQLException {
         this.createConnection();
-        String sql = "select * from Usuarios where Registro_Usuario = ?";
+        String sql = "select * from usuarios where registro_usuario = ?";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setLong(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         Usuario user = null;
         if(resultSet.next()){
-            user = new Usuario(resultSet.getLong("Registro_Usuario"),
-                    resultSet.getString("Indentificacao_Usuario"),
-                    resultSet.getString("Senha_Acesso"),
-                    resultSet.getString("Cadastro_Funcionario"),
-                    resultSet.getString("Cadastro_Usuario"),
-                    resultSet.getString("Cadastro_Paciente"),
-                    resultSet.getString("Cadastro_Especialidade"),
-                    resultSet.getString("Cadastro_Medico"),
-                    resultSet.getString("Cadastro_Convenio"),
-                    resultSet.getString("Agendamento_Consulta"),
-                    resultSet.getString("Cancelamento_Consulta"),
-                    resultSet.getString("Modulo_Administrativo"),
-                    resultSet.getString("Modulo_Agendamento"),
-                    resultSet.getString("Modulo_Atendimento"));
+            user = new Usuario(resultSet.getLong("registro_usuario"),
+                    resultSet.getString("indentificacao_usuario"),
+                    resultSet.getString("senha_acesso"),
+                    resultSet.getString("cadastro_funcionario"),
+                    resultSet.getString("cadastro_usuario"),
+                    resultSet.getString("cadastro_paciente"),
+                    resultSet.getString("cadastro_especialidade"),
+                    resultSet.getString("cadastro_medico"),
+                    resultSet.getString("cadastro_convenio"),
+                    resultSet.getString("agendamento_consulta"),
+                    resultSet.getString("cancelamento_consulta"),
+                    resultSet.getString("modulo_administrativo"),
+                    resultSet.getString("modulo_agendamento"),
+                    resultSet.getString("modulo_atendimento"));
         }
         this.destroyConnection();
         return user;
@@ -69,7 +69,7 @@ public class UsuarioDao implements IDatabaseCRUD<Usuario> {
     @Override
     public int save(Usuario entidade) throws SQLException {
         this.createConnection();
-        String sql = "insert into Usuarios values (NULL,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into usuarios values (NULL,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setString(1,entidade.getIdentificacao_usuario());
         preparedStatement.setString(2,entidade.getSenha_acesso());
@@ -92,7 +92,7 @@ public class UsuarioDao implements IDatabaseCRUD<Usuario> {
     @Override
     public int update(Usuario entidade) throws SQLException {
         this.createConnection();
-        String sql = "update Usuarios set Indentificacao_Usuario= ?, Senha_Acesso = ?, Cadastro_Funcionario = ?, Cadastro_Usuario = ?, Cadastro_Paciente = ?, Cadastro_Especialidade = ?, Cadastro_Medico = ?, Cadastro_Convenio = ?, Agendamento_Consulta = ?, Cancelamento_Consulta = ?, Modulo_Administrativo = ?, Modulo_Agendamento = ?, Modulo_Atendimento = ? where Registro_Usuario = ?";
+        String sql = "update usuarios set Indentificacao_Usuario= ?, Senha_Acesso = ?, Cadastro_Funcionario = ?, Cadastro_Usuario = ?, Cadastro_Paciente = ?, Cadastro_Especialidade = ?, Cadastro_Medico = ?, Cadastro_Convenio = ?, Agendamento_Consulta = ?, Cancelamento_Consulta = ?, Modulo_Administrativo = ?, Modulo_Agendamento = ?, Modulo_Atendimento = ? where Registro_Usuario = ?";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setString(1,entidade.getIdentificacao_usuario());
         preparedStatement.setString(2,entidade.getSenha_acesso());
@@ -116,11 +116,11 @@ public class UsuarioDao implements IDatabaseCRUD<Usuario> {
     @Override
     public ArrayList<Usuario> findAll() throws SQLException {
         this.createConnection();
-        String sql = "select * from Usuarios";
+        String sql = "select * from usuarios";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         ResultSet resultSet = preparedStatement.executeQuery();
         ArrayList<Usuario> user = new ArrayList<>();
-        if(resultSet.next()){
+        while(resultSet.next()){
             user.add(new Usuario(resultSet.getLong("Registro_Usuario"),
                     resultSet.getString("Indentificacao_Usuario"),
                     resultSet.getString("Senha_Acesso"),
@@ -138,5 +138,19 @@ public class UsuarioDao implements IDatabaseCRUD<Usuario> {
         }
         this.destroyConnection();
         return user;
+    }
+    public Long check(String user, String psswd) throws SQLException{
+        this.createConnection();
+        String sql = "select registro_usuario from usuarios where indentificacao_usuario = ? and senha_acesso = ?";
+        PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
+        preparedStatement.setString(1,user);
+        preparedStatement.setString(2,psswd);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        Long result = Long.parseLong("-1");
+        if(resultSet.next()){
+            result = resultSet.getLong("registro_usuario");
+        }
+        this.destroyConnection();
+        return result;
     }
 }

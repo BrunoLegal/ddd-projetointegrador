@@ -1,23 +1,34 @@
 package br.edu.imepac.entidades;
 
+import br.edu.imepac.enums.Sexo;
+import br.edu.imepac.enums.Sim_ou_Nao;
+
+import java.sql.Date;// pra formatar o dado de tata de nascimento pro formato de Date igual ao do SQL
 public class Paciente {
-    private int codigo_paciente;
+    private long codigo_paciente;
     private String nome;
-    private int RG;
+    private String RG;
     private String orgaoEmissor;
-    private int CPF;
+    private String CPF;
     private String endereco;
-    private int numero;
     private String complemento;
     private String bairro;
     private String cidade;
     private String estado;
-    private int telefone;
-    private int celular;
-    private int dataNascimento;
-    private char sexo;// esse aqui depois tem que alterar pra só receber M (sexo masculino) ou F (sexo feminino)
-    private boolean possuiConvenio;
-    private Convenio convenio;
+    private String telefone;
+    private String celular;
+    private Date dataNascimento;
+    private Sexo sexo;// esse aqui depois tem que alterar pra só receber M (sexo masculino) ou F (sexo feminino)
+    private Sim_ou_Nao possuiConvenio;
+    private long convenio;
+
+    public long getCodigo_paciente() {
+        return codigo_paciente;
+    }
+
+    public void setCodigo_paciente(long codigo_paciente) {
+        this.codigo_paciente = codigo_paciente;
+    }
 
     public String getNome() {
         return nome;
@@ -27,11 +38,11 @@ public class Paciente {
         this.nome = nome;
     }
 
-    public int getRG() {
+    public String getRG() {
         return RG;
     }
 
-    public void setRG(int RG) {
+    public void setRG(String RG) {
         this.RG = RG;
     }
 
@@ -43,11 +54,11 @@ public class Paciente {
         this.orgaoEmissor = orgaoEmissor;
     }
 
-    public int getCPF() {
+    public String getCPF() {
         return CPF;
     }
 
-    public void setCPF(int CPF) {
+    public void setCPF(String CPF) {
         this.CPF = CPF;
     }
 
@@ -57,14 +68,6 @@ public class Paciente {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
     }
 
     public String getComplemento() {
@@ -99,62 +102,79 @@ public class Paciente {
         this.estado = estado;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    public int getCelular() {
+    public String getCelular() {
         return celular;
     }
 
-    public void setCelular(int celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
     }
 
-    public int getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(int dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
-    public char getSexo() {
+    public Sexo getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(Sexo sexo) {
         this.sexo = sexo;
     }
 
-    public boolean isPossuiConvenio() {
+    public Sim_ou_Nao getPossuiConvenio() {
         return possuiConvenio;
     }
 
-    public void setPossuiConvenio(boolean possuiConvenio) {
+    public void setPossuiConvenio(Sim_ou_Nao possuiConvenio) {
         this.possuiConvenio = possuiConvenio;
     }
 
-    public Convenio getConvenio() {
+    public long getConvenio() {
         return convenio;
     }
 
-    public void setConvenio(Convenio convenio) {
+    public void setConvenio(long convenio) {
         this.convenio = convenio;
     }
 
-    public Paciente(int codigo_paciente, String nome, int RG, String orgaoEmissor, int CPF, String endereco, int numero, String complemento, String bairro, String cidade, String estado, int telefone, int celular, int dataNascimento, char sexo, boolean possuiConvenio, Convenio convenio) {
+    public Paciente(long codigo_paciente, String nome, String RG, String orgaoEmissor, String CPF, String endereco, String complemento, String bairro, String cidade, String estado, String telefone, String celular, Date dataNascimento, Sexo sexo, Sim_ou_Nao possuiConvenio, long convenio) {
         this.codigo_paciente = codigo_paciente;
         this.nome = nome;
         this.RG = RG;
         this.orgaoEmissor = orgaoEmissor;
         this.CPF = CPF;
         this.endereco = endereco;
-        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.telefone = telefone;
+        this.celular = celular;
+        this.dataNascimento = dataNascimento;
+        this.sexo = sexo;
+        this.possuiConvenio = possuiConvenio;
+        this.convenio = convenio;
+    }
+
+    public Paciente(String nome, String RG, String orgaoEmissor, String CPF, String endereco, String complemento, String bairro, String cidade, String estado, String telefone, String celular, Date dataNascimento, Sexo sexo, Sim_ou_Nao possuiConvenio, long convenio) {
+        this.nome = nome;
+        this.RG = RG;
+        this.orgaoEmissor = orgaoEmissor;
+        this.CPF = CPF;
+        this.endereco = endereco;
         this.complemento = complemento;
         this.bairro = bairro;
         this.cidade = cidade;

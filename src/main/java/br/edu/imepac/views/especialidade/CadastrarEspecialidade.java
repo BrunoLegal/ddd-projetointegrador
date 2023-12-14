@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.edu.imepac.views;
+package br.edu.imepac.views.especialidade;
 
 import br.edu.imepac.controladores.EspecialidadeController;
 import br.edu.imepac.entidades.Especialidade;
 import br.edu.imepac.utils.IRolesForms;
+import br.edu.imepac.views.BaseForm;
 
 import javax.swing.*;
 
@@ -38,8 +39,7 @@ public class CadastrarEspecialidade extends BaseForm implements IRolesForms<Espe
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         inserirEspecialidade.setBackground(new java.awt.Color(51, 153, 255));
         inserirEspecialidade.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -63,6 +63,7 @@ public class CadastrarEspecialidade extends BaseForm implements IRolesForms<Espe
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD:src/main/java/br/edu/imepac/views/CadastrarEspecialidade.java
                     .addGroup(layout.createSequentialGroup()
                         .addGap(150, 150, 150)
                         .addComponent(jLabel2))
@@ -76,6 +77,15 @@ public class CadastrarEspecialidade extends BaseForm implements IRolesForms<Espe
                     .addComponent(inserirEspecialidade)
                     .addComponent(descEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(67, Short.MAX_VALUE))
+=======
+                    .addComponent(descEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(inserirEspecialidade)
+                .addGap(114, 114, 114))
+>>>>>>> a42460a73aa44f9949765b7f8d0f89635bb00d6f:src/main/java/br/edu/imepac/views/especialidade/CadastrarEspecialidade.java
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,7 +98,11 @@ public class CadastrarEspecialidade extends BaseForm implements IRolesForms<Espe
                 .addComponent(descEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(inserirEspecialidade)
+<<<<<<< HEAD:src/main/java/br/edu/imepac/views/CadastrarEspecialidade.java
                 .addContainerGap(36, Short.MAX_VALUE))
+=======
+                .addContainerGap(23, Short.MAX_VALUE))
+>>>>>>> a42460a73aa44f9949765b7f8d0f89635bb00d6f:src/main/java/br/edu/imepac/views/especialidade/CadastrarEspecialidade.java
         );
 
         pack();
@@ -103,6 +117,22 @@ public class CadastrarEspecialidade extends BaseForm implements IRolesForms<Espe
         }
     }//GEN-LAST:event_inserirEspecialidadeActionPerformed
 
+    @Override
+    public Especialidade createEntityViewRepresentation() {
+        return new Especialidade(this.descEspecialidade.getText());
+    }
+
+    @Override
+    public boolean isFieldsFormsValidate() {
+        if(this.descEspecialidade.getText().isBlank() || this.descEspecialidade.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Insira a Especialidade a ser inserida primeiro!", "Alerta!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+    private void resetFields(){
+        descEspecialidade.setText("");
+    }
     /**
      * @param args the command line arguments
      */
@@ -143,6 +173,7 @@ public class CadastrarEspecialidade extends BaseForm implements IRolesForms<Espe
     private javax.swing.JTextField descEspecialidade;
     private javax.swing.JButton inserirEspecialidade;
     private javax.swing.JLabel jLabel1;
+<<<<<<< HEAD:src/main/java/br/edu/imepac/views/CadastrarEspecialidade.java
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 
@@ -153,4 +184,7 @@ public class CadastrarEspecialidade extends BaseForm implements IRolesForms<Espe
     public Especialidade createEntityViewRepresentation() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+=======
+    // End of variables declaration//GEN-END:variables
+>>>>>>> a42460a73aa44f9949765b7f8d0f89635bb00d6f:src/main/java/br/edu/imepac/views/especialidade/CadastrarEspecialidade.java
 }

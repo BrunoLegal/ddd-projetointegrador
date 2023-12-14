@@ -36,4 +36,8 @@ public class UsuarioService {
         return this.usuarioDao.findAll();
     }
 
+    public Long checkUsuario(String user, String psswd) throws SQLException{
+        return this.usuarioDao.check(user, psswd);
+    }
+
 }

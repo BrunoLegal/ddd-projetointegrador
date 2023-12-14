@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.edu.imepac.DAOs;
+package br.edu.imepac.daos;
 
 import br.edu.imepac.entidades.Funcionario;
 import br.edu.imepac.interfaces.IDatabaseCRUD;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author 231-001278
+ * @author Alfredo
  */
 public class FuncionarioDao implements IDatabaseCRUD<Funcionario>{
 
@@ -31,7 +31,7 @@ public class FuncionarioDao implements IDatabaseCRUD<Funcionario>{
     @Override
     public int save(Funcionario pessoa) throws SQLException{
         this.createConnection();
-        String sql = "insert into funcionario values(NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into funcionarios values(NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setString(1, pessoa.getNome());
         preparedStatement.setString(2, pessoa.getRG() );
@@ -56,7 +56,7 @@ public class FuncionarioDao implements IDatabaseCRUD<Funcionario>{
     @Override
     public Funcionario read(Long codigo_funcionario) throws SQLException {
         this.createConnection();
-        String sql = "select * from contacts where codigo_funcionario = ?";
+        String sql = "select * from funcionarios where codigo_funcionario = ?";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setLong(1, codigo_funcionario);
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -71,7 +71,7 @@ public class FuncionarioDao implements IDatabaseCRUD<Funcionario>{
     @Override
     public int delete(Long codigo_funcionario) throws SQLException {
         this.createConnection();
-        String sql = "delete from funcionario where codigo_funcionario = ?";
+        String sql = "delete from funcionarios where codigo_funcionario = ?";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setLong(1, codigo_funcionario);
         int result = preparedStatement.executeUpdate();
@@ -82,7 +82,7 @@ public class FuncionarioDao implements IDatabaseCRUD<Funcionario>{
     @Override
     public int update(Funcionario pessoa) throws SQLException {
         this.createConnection();
-        String sql = "update contacts set nome_completo = ?, " +
+        String sql = "update funcionarios set nome_completo = ?, " +
                 "numero_rg = ?, " +
                 "orgao_emissor = ?, " +
                 "numero_cpf = ?, " +
@@ -128,6 +128,7 @@ public class FuncionarioDao implements IDatabaseCRUD<Funcionario>{
         ResultSet resultSet = preparedStatement.executeQuery();
         ArrayList<Funcionario> persons = new ArrayList<>();
         while (resultSet.next()) {
+
             persons.add(new Funcionario(
                     resultSet.getLong("codigo_funcionario"),
                     resultSet.getString("nome_completo"), 

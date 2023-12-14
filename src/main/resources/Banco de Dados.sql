@@ -3,6 +3,9 @@ create database hospital;
 
 use hospital;
 
+create user "admin" identified by "1234";
+grant all privileges on *.* to "admin" with grant option;
+
 create table funcionarios(
 codigo_funcionario int primary key auto_increment,
 nome_completo varchar(100) not null,
@@ -11,12 +14,12 @@ orgao_emissor varchar(6) not null,
 numero_cpf varchar(14) not null,
 endereco varchar(50) not null,
 numero varchar(15) not null,
-complemento varchar(30) not null,
+complemento varchar(30),
 bairro varchar(40) not null,
 cidade varchar(40) not null,
 estado varchar(2) not null,
 telefone varchar(20) not null,
-celular varchar(20) not null,
+celular varchar(20),
 numero_ctps varchar(20) not null,
 numero_pis varchar(20) not null,
 data_nascimento date not null
@@ -24,7 +27,7 @@ data_nascimento date not null
 
 
 
-create table Especialidades(
+create table especialidades(
 Codigo_Especialidade INT PRIMARY KEY auto_increment,
 Descricao_Especialidade VARCHAR(45) not null
 );
@@ -60,7 +63,7 @@ create table medicos(
 codigo_medico int primary key auto_increment,
 nome_medico varchar(50) not null,
 crm varchar(20) not null,
-codigo_especialidade int,
+codigo_especialidade int not null,
 
 foreign key(codigo_especialidade)
 references especialidades(codigo_especialidade)
@@ -83,7 +86,6 @@ celular varchar(20) not null,
 data_nascimento date not null,
 sexo varchar(1) not null,
 tem_convenio varchar(1) not null,
-senha_acesso varchar(10) not null,
 codigo_convenio int,
 
 foreign key(codigo_convenio)
@@ -123,3 +125,6 @@ exames text,
 foreign key(registro_agenda)
 references agenda_consulta(registro_agenda)
 );
+
+insert into usuarios values (null, "admin", "admin", "y", "y", "y", "y", "y", "y", "y", "y", "y", "y", "y" );
+
