@@ -50,7 +50,7 @@ public class CadastroMedico extends BaseForm implements IRolesForms<Medico> {
         jScrollPane1 = new javax.swing.JScrollPane();
         especialidadeTable = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Roboto Condensed", 1, 24)); // NOI18N
         jLabel1.setText("Cadastro Médico");
@@ -168,11 +168,18 @@ public class CadastroMedico extends BaseForm implements IRolesForms<Medico> {
             try {
                 this.medicoController.saveMedico(createEntityViewRepresentation());
                 this.showSuccessMessage("Medico inserido com Sucesso!");
+                clearFields();
             }catch (ArrayIndexOutOfBoundsException e){
                 this.showWarningMessage("Selecione uma especialidade primeiro!");
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void clearFields(){
+        nomeMedicoField.setText("");
+        crmField.setText("");
+        especialidadeTable.changeSelection(0,0, false, false);
+    }
 
     private void loadTable(){
         ArrayList<Especialidade> especialidades = this.especialidadeController.findAllEspecialidade();

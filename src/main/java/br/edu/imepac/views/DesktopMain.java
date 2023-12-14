@@ -5,12 +5,16 @@
 package br.edu.imepac.views;
 
 import br.edu.imepac.entidades.Usuario;
+import br.edu.imepac.views.convenio.AtualizarConvenio;
+import br.edu.imepac.views.convenio.CadastrarConvenio;
 import br.edu.imepac.views.especialidade.AtualizarEspecialidade;
 import br.edu.imepac.views.especialidade.CadastrarEspecialidade;
 import br.edu.imepac.views.funcionario.AtualizarFuncionario;
 import br.edu.imepac.views.funcionario.CadastrarFuncionario;
 import br.edu.imepac.views.medico.AtualizarMedico;
 import br.edu.imepac.views.medico.CadastroMedico;
+import br.edu.imepac.views.usuario.AtualizarUsuario;
+import br.edu.imepac.views.usuario.CadastrarUsuario;
 
 /**
  *
@@ -50,12 +54,19 @@ public class DesktopMain extends javax.swing.JFrame {
         popupMedico = new javax.swing.JPopupMenu();
         cadastrarMedicoItem = new javax.swing.JMenuItem();
         atualizarMedicoItem = new javax.swing.JMenuItem();
+        popupUsuario = new javax.swing.JPopupMenu();
+        cadastrarUsuarioItem = new javax.swing.JMenuItem();
+        atualizarUsuarioItem = new javax.swing.JMenuItem();
+        popupConvenio = new javax.swing.JPopupMenu();
+        cadastrarConvenioItem = new javax.swing.JMenuItem();
+        atualizarConvenioItem = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         adminMenu = new javax.swing.JMenu();
         funcionarioItem = new javax.swing.JMenuItem();
         usuariosItem = new javax.swing.JMenuItem();
         medicosItem = new javax.swing.JMenuItem();
         especialidadesItem = new javax.swing.JMenuItem();
+        conveniosItem = new javax.swing.JMenuItem();
         agendamentoMenu = new javax.swing.JMenu();
         atendimentoMenu = new javax.swing.JMenu();
 
@@ -107,6 +118,38 @@ public class DesktopMain extends javax.swing.JFrame {
         });
         popupMedico.add(atualizarMedicoItem);
 
+        cadastrarUsuarioItem.setLabel("Cadastrar Usuarios");
+        cadastrarUsuarioItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarUsuarioItemActionPerformed(evt);
+            }
+        });
+        popupUsuario.add(cadastrarUsuarioItem);
+
+        atualizarUsuarioItem.setText("Atualizar Usuarios");
+        atualizarUsuarioItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atualizarUsuarioItemActionPerformed(evt);
+            }
+        });
+        popupUsuario.add(atualizarUsuarioItem);
+
+        cadastrarConvenioItem.setText("Cadastrar Convenios");
+        cadastrarConvenioItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarConvenioItemActionPerformed(evt);
+            }
+        });
+        popupConvenio.add(cadastrarConvenioItem);
+
+        atualizarConvenioItem.setText("Atualizar Convenio");
+        atualizarConvenioItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atualizarConvenioItemActionPerformed(evt);
+            }
+        });
+        popupConvenio.add(atualizarConvenioItem);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         adminMenu.setText("Administração");
@@ -130,6 +173,11 @@ public class DesktopMain extends javax.swing.JFrame {
         adminMenu.add(funcionarioItem);
 
         usuariosItem.setText("Usuários");
+        usuariosItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuariosItemActionPerformed(evt);
+            }
+        });
         adminMenu.add(usuariosItem);
 
         medicosItem.setText("Médicos");
@@ -147,6 +195,14 @@ public class DesktopMain extends javax.swing.JFrame {
             }
         });
         adminMenu.add(especialidadesItem);
+
+        conveniosItem.setText("Convenios");
+        conveniosItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conveniosItemActionPerformed(evt);
+            }
+        });
+        adminMenu.add(conveniosItem);
 
         jMenuBar1.add(adminMenu);
 
@@ -193,6 +249,9 @@ public class DesktopMain extends javax.swing.JFrame {
                 medicosItem.setEnabled(false);
             if(user.getCadastro_usuario().equals("n"))
                 usuariosItem.setEnabled(false);
+            if(user.getCadastro_convenio().equals("n")){
+                conveniosItem.setEnabled(false);
+            }
         }
 
         if(user.getModulo_agendamento().equals("n")){
@@ -204,12 +263,12 @@ public class DesktopMain extends javax.swing.JFrame {
 
     }
     private void adminMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminMenuMouseEntered
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_adminMenuMouseEntered
 
     private void funcionarioItemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_funcionarioItemMouseEntered
-        
+
     }//GEN-LAST:event_funcionarioItemMouseEntered
 
     private void funcionarioItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funcionarioItemActionPerformed
@@ -248,6 +307,30 @@ public class DesktopMain extends javax.swing.JFrame {
         new AtualizarMedico().setVisible(true);
     }//GEN-LAST:event_atualizarMedicoItemActionPerformed
 
+    private void usuariosItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariosItemActionPerformed
+        popupUsuario.show(this, usuariosItem.getX()+100, usuariosItem.getY()+50);
+    }//GEN-LAST:event_usuariosItemActionPerformed
+
+    private void conveniosItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conveniosItemActionPerformed
+        popupConvenio.show(this, conveniosItem.getX()+100, conveniosItem.getY()+50);
+    }//GEN-LAST:event_conveniosItemActionPerformed
+
+    private void cadastrarUsuarioItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarUsuarioItemActionPerformed
+        new CadastrarUsuario().setVisible(true);
+    }//GEN-LAST:event_cadastrarUsuarioItemActionPerformed
+
+    private void atualizarUsuarioItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarUsuarioItemActionPerformed
+        new AtualizarUsuario().setVisible(true);
+    }//GEN-LAST:event_atualizarUsuarioItemActionPerformed
+
+    private void cadastrarConvenioItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarConvenioItemActionPerformed
+        new CadastrarConvenio().setVisible(true);
+    }//GEN-LAST:event_cadastrarConvenioItemActionPerformed
+
+    private void atualizarConvenioItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarConvenioItemActionPerformed
+        new AtualizarConvenio().setVisible(true);
+    }//GEN-LAST:event_atualizarConvenioItemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -255,7 +338,7 @@ public class DesktopMain extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -282,8 +365,8 @@ public class DesktopMain extends javax.swing.JFrame {
             }
         });
     }
-    
-    
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu adminMenu;
@@ -291,17 +374,24 @@ public class DesktopMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem alterarEspecialidadeItem;
     private javax.swing.JMenuItem alterarFuncionarioItem;
     private javax.swing.JMenu atendimentoMenu;
+    private javax.swing.JMenuItem atualizarConvenioItem;
     private javax.swing.JMenuItem atualizarMedicoItem;
+    private javax.swing.JMenuItem atualizarUsuarioItem;
+    private javax.swing.JMenuItem cadastrarConvenioItem;
     private javax.swing.JMenuItem cadastrarEspecialidadeItem;
     private javax.swing.JMenuItem cadastrarMedicoItem;
+    private javax.swing.JMenuItem cadastrarUsuarioItem;
+    private javax.swing.JMenuItem conveniosItem;
     private javax.swing.JMenuItem especialidadesItem;
     private javax.swing.JMenuItem funcionarioItem;
     private javax.swing.JMenuItem inserirFuncionarioItem;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem medicosItem;
+    private javax.swing.JPopupMenu popupConvenio;
     private javax.swing.JPopupMenu popupEspecialidade;
     private javax.swing.JPopupMenu popupFuncionario;
     private javax.swing.JPopupMenu popupMedico;
+    private javax.swing.JPopupMenu popupUsuario;
     private javax.swing.JMenuItem usuariosItem;
     // End of variables declaration//GEN-END:variables
 }

@@ -66,6 +66,7 @@ public class AtualizarEspecialidade extends BaseForm implements IRolesForms<Espe
                 return canEdit [columnIndex];
             }
         });
+        especialidadeTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(especialidadeTable);
         if (especialidadeTable.getColumnModel().getColumnCount() > 0) {
             especialidadeTable.getColumnModel().getColumn(0).setMinWidth(30);

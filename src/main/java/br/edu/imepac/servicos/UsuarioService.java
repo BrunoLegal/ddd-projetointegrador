@@ -32,7 +32,7 @@ public class UsuarioService {
     public Usuario findUsuario(Long id) throws SQLException {
         return this.usuarioDao.read(id);
     }
-    public ArrayList findAllUsuario() throws SQLException {
+    public ArrayList<Usuario> findAllUsuario() throws SQLException {
         return this.usuarioDao.findAll();
     }
 

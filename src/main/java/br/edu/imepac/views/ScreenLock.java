@@ -142,6 +142,7 @@ public class ScreenLock extends BaseForm {
          Long id = checkUsuario();
         if(id != -1){
                new DesktopMain(this.usuarioController.findUsuario(id)).setVisible(true);
+               this.dispose();
            }else{
                this.showWarningMessage("Usuario ou Senha Inválidos!");
            }
