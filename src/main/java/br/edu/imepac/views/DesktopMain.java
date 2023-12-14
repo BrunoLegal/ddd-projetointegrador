@@ -4,10 +4,13 @@
  */
 package br.edu.imepac.views;
 
+import br.edu.imepac.entidades.Usuario;
 import br.edu.imepac.views.especialidade.AtualizarEspecialidade;
 import br.edu.imepac.views.especialidade.CadastrarEspecialidade;
 import br.edu.imepac.views.funcionario.AtualizarFuncionario;
 import br.edu.imepac.views.funcionario.CadastrarFuncionario;
+import br.edu.imepac.views.medico.AtualizarMedico;
+import br.edu.imepac.views.medico.CadastroMedico;
 
 /**
  *
@@ -20,6 +23,13 @@ public class DesktopMain extends javax.swing.JFrame {
      */
     public DesktopMain() {
         initComponents();
+        adminMenu.setEnabled(false);
+        agendamentoMenu.setEnabled(false);
+        atendimentoMenu.setEnabled(false);
+    }
+    public DesktopMain(Usuario user){
+        initComponents();
+        allowPrivileges(user);
     }
 
     /**
@@ -37,14 +47,17 @@ public class DesktopMain extends javax.swing.JFrame {
         popupEspecialidade = new javax.swing.JPopupMenu();
         cadastrarEspecialidadeItem = new javax.swing.JMenuItem();
         alterarEspecialidadeItem = new javax.swing.JMenuItem();
+        popupMedico = new javax.swing.JPopupMenu();
+        cadastrarMedicoItem = new javax.swing.JMenuItem();
+        atualizarMedicoItem = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         adminMenu = new javax.swing.JMenu();
         funcionarioItem = new javax.swing.JMenuItem();
         usuariosItem = new javax.swing.JMenuItem();
         medicosItem = new javax.swing.JMenuItem();
         especialidadesItem = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        agendamentoMenu = new javax.swing.JMenu();
+        atendimentoMenu = new javax.swing.JMenu();
 
         inserirFuncionarioItem.setText("Cadastrar Funcionario");
         inserirFuncionarioItem.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +90,22 @@ public class DesktopMain extends javax.swing.JFrame {
             }
         });
         popupEspecialidade.add(alterarEspecialidadeItem);
+
+        cadastrarMedicoItem.setText("Cadastrar Medicos");
+        cadastrarMedicoItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarMedicoItemActionPerformed(evt);
+            }
+        });
+        popupMedico.add(cadastrarMedicoItem);
+
+        atualizarMedicoItem.setText("Atualizar Medicos");
+        atualizarMedicoItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atualizarMedicoItemActionPerformed(evt);
+            }
+        });
+        popupMedico.add(atualizarMedicoItem);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,16 +150,16 @@ public class DesktopMain extends javax.swing.JFrame {
 
         jMenuBar1.add(adminMenu);
 
-        jMenu1.setText("Agendamento");
-        jMenuBar1.add(jMenu1);
+        agendamentoMenu.setText("Agendamento");
+        jMenuBar1.add(agendamentoMenu);
 
-        jMenu3.setText("Atendimento");
-        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+        atendimentoMenu.setText("Atendimento");
+        atendimentoMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu3ActionPerformed(evt);
+                atendimentoMenuActionPerformed(evt);
             }
         });
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(atendimentoMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -148,10 +177,32 @@ public class DesktopMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-       // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu3ActionPerformed
 
+    private void atendimentoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atendimentoMenuActionPerformed
+       // TODO add your handling code here:
+    }//GEN-LAST:event_atendimentoMenuActionPerformed
+    private void allowPrivileges(Usuario user){
+        if(user.getModulo_administrativo().equals("n")) {
+            adminMenu.setEnabled(false);
+        }else{
+            if(user.getCadastro_funcionario().equals("n"))
+                funcionarioItem.setEnabled(false);
+            if(user.getCadastro_especialidade().equals("n"))
+                especialidadesItem.setEnabled(false);
+            if(user.getCadastro_medico().equals("n"))
+                medicosItem.setEnabled(false);
+            if(user.getCadastro_usuario().equals("n"))
+                usuariosItem.setEnabled(false);
+        }
+
+        if(user.getModulo_agendamento().equals("n")){
+            agendamentoMenu.setEnabled(false);
+        }
+        if(user.getModulo_atendimento().equals("n")){
+            atendimentoMenu.setEnabled(false);
+        }
+
+    }
     private void adminMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminMenuMouseEntered
         
 // TODO add your handling code here:
@@ -174,7 +225,7 @@ public class DesktopMain extends javax.swing.JFrame {
     }//GEN-LAST:event_alterarFuncionarioItemActionPerformed
 
     private void medicosItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicosItemActionPerformed
-        // TODO add your handling code here:
+        popupMedico.show(this,medicosItem.getX()+100, medicosItem.getY()+50);
     }//GEN-LAST:event_medicosItemActionPerformed
 
     private void especialidadesItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especialidadesItemActionPerformed
@@ -188,6 +239,14 @@ public class DesktopMain extends javax.swing.JFrame {
     private void cadastrarEspecialidadeItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarEspecialidadeItemActionPerformed
         new CadastrarEspecialidade().setVisible(true);
     }//GEN-LAST:event_cadastrarEspecialidadeItemActionPerformed
+
+    private void cadastrarMedicoItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarMedicoItemActionPerformed
+        new CadastroMedico().setVisible(true);
+    }//GEN-LAST:event_cadastrarMedicoItemActionPerformed
+
+    private void atualizarMedicoItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarMedicoItemActionPerformed
+        new AtualizarMedico().setVisible(true);
+    }//GEN-LAST:event_atualizarMedicoItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,18 +287,21 @@ public class DesktopMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu adminMenu;
+    private javax.swing.JMenu agendamentoMenu;
     private javax.swing.JMenuItem alterarEspecialidadeItem;
     private javax.swing.JMenuItem alterarFuncionarioItem;
+    private javax.swing.JMenu atendimentoMenu;
+    private javax.swing.JMenuItem atualizarMedicoItem;
     private javax.swing.JMenuItem cadastrarEspecialidadeItem;
+    private javax.swing.JMenuItem cadastrarMedicoItem;
     private javax.swing.JMenuItem especialidadesItem;
     private javax.swing.JMenuItem funcionarioItem;
     private javax.swing.JMenuItem inserirFuncionarioItem;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem medicosItem;
     private javax.swing.JPopupMenu popupEspecialidade;
     private javax.swing.JPopupMenu popupFuncionario;
+    private javax.swing.JPopupMenu popupMedico;
     private javax.swing.JMenuItem usuariosItem;
     // End of variables declaration//GEN-END:variables
 }

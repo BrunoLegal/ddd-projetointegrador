@@ -125,3 +125,6 @@ exames text,
 foreign key(registro_agenda)
 references agenda_consulta(registro_agenda)
 );
+
+insert into usuarios values (null, "admin", "admin", "y", "y", "y", "y", "y", "y", "y", "y", "y", "y", "y" );
+
