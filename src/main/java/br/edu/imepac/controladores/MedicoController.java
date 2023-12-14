@@ -36,5 +36,31 @@ public class MedicoController {
         }
     }
 
+    public ArrayList findAllMedico(){
+        try {
+            return this.medicoService.findAllMedico();
+        }catch (SQLException sql){
+            baseForm.showErrorInternal(sql.getMessage());
+        }
+        return null;
+    }
+
+    public Medico findMedico(Long id){
+        try {
+            return this.medicoService.findMedico(id);
+        }catch (SQLException sql){
+            baseForm.showErrorInternal(sql.getMessage());
+        }
+        return null;
+    }
+
+    public void updateMedico(Medico medico){
+        try{
+            this.medicoService.updateMedico(medico);
+        }catch (SQLException sql){
+            baseForm.showErrorInternal(sql.getMessage());
+        }
+    }
+
 
 }

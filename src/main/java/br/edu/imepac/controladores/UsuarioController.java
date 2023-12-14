@@ -65,5 +65,14 @@ public class UsuarioController {
         }
         return null;
     }
+
+    public Long checkUsuario(String user, String psswd){
+        try {
+            return this.usuarioService.checkUsuario(user, psswd);
+        }catch (SQLException e){
+            baseForm.showErrorInternal(e.getMessage());
+        }
+        return Long.parseLong("-1");
+    }
     
 }
