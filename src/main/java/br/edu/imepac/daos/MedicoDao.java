@@ -94,6 +94,7 @@ public class MedicoDao implements IDatabaseCRUD<Medico> {
         preparedStatement.setString(1,entidade.getNome_Medico());
         preparedStatement.setLong(2,entidade.getCodigo_Especialidade());
         preparedStatement.setString(3,entidade.getCRM());
+        preparedStatement.setLong(4, entidade.getCodigo_Medico());
         int result = preparedStatement.executeUpdate();
         this.destroyConnection();
         return result;
