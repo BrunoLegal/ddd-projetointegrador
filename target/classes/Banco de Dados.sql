@@ -63,7 +63,7 @@ create table medicos(
 codigo_medico int primary key auto_increment,
 nome_medico varchar(50) not null,
 crm varchar(20) not null,
-codigo_especialidade int,
+codigo_especialidade int not null,
 
 foreign key(codigo_especialidade)
 references especialidades(codigo_especialidade)

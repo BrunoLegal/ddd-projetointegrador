@@ -45,12 +45,11 @@ public class MedicoDao implements IDatabaseCRUD<Medico> {
     @Override
     public int save(Medico entidade) throws SQLException {
         this.createConnection();
-        String sql = "insert into medico(Codigo_medico, Nome_medico, , Codigo_Especialidade, CRM) values (?,?,?,?))";
+        String sql = "insert into medicos(nome_medico, codigo_especialidade, crm) values (?,?,?)";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
-        preparedStatement.setLong(1,entidade.getCodigo_Medico());
-        preparedStatement.setString(2,entidade.getNome_Medico());
-        preparedStatement.setLong(3,entidade.getCodigo_Especialidade());
-        preparedStatement.setString(4,entidade.getCRM());
+        preparedStatement.setString(1,entidade.getNome_Medico());
+        preparedStatement.setLong(2,entidade.getCodigo_Especialidade());
+        preparedStatement.setString(3,entidade.getCRM());
         int result = preparedStatement.executeUpdate();
         this.destroyConnection();
         return result;
@@ -60,7 +59,7 @@ public class MedicoDao implements IDatabaseCRUD<Medico> {
     @Override
     public int delete(Long id) throws SQLException {
         this.createConnection(); //chama o metodo CreateConnection para rapidamente criar uma conexão
-        String sql = "delete from medicos where id = ?"; //Cria uma string com o comando a ser inserido, "?" é o simbolo utilizado como uma "variavel"
+        String sql = "delete from medicos where codigo_medico = ?"; //Cria uma string com o comando a ser inserido, "?" é o simbolo utilizado como uma "variavel"
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql); //prepara o comando para ser inserido na database
         preparedStatement.setLong(1, id); //aqui insere um comando do tipo Long onde aquele primeiro ? ficava, no caso o id recebido
         int result = preparedStatement.executeUpdate(); // cria uma variavel int, ela armazena o resultado do metodo que executa o comando preparado
@@ -72,7 +71,7 @@ public class MedicoDao implements IDatabaseCRUD<Medico> {
     @Override
     public Medico read(Long id) throws SQLException {
         this.createConnection();
-        String sql = "select * from Medico where id = ?";
+        String sql = "select * from medicos where codigo_medico = ?";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
         preparedStatement.setLong(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -90,12 +89,11 @@ public class MedicoDao implements IDatabaseCRUD<Medico> {
     @Override
     public int update(br.edu.imepac.entidades.Medico entidade) throws SQLException {
         this.createConnection();
-        String sql = "update Medicos set codigo_medico = ?, getNome_Medico = ?, codigo_especialidade = ?, getCRM = ?, where id = ?";
+        String sql = "update medicos set nome_medico = ?, codigo_especialidade = ?, crm = ? where codigo_medico = ?";
         PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
-        preparedStatement.setLong(1,entidade.getCodigo_Medico());
-        preparedStatement.setString(2,entidade.getNome_Medico());
-        preparedStatement.setLong(3,entidade.getCodigo_Especialidade());
-        preparedStatement.setString(4,entidade.getCRM());
+        preparedStatement.setString(1,entidade.getNome_Medico());
+        preparedStatement.setLong(2,entidade.getCodigo_Especialidade());
+        preparedStatement.setString(3,entidade.getCRM());
         int result = preparedStatement.executeUpdate();
         this.destroyConnection();
         return result;

@@ -25,6 +25,12 @@ public class Medico {
         this.crm = crm;
         this.codigo_especialidade = codigo_especialidade;
     }
+    public Medico(String nome_medico, String crm, Long codigo_especialidade) {
+        this.nome_medico = nome_medico;
+        this.crm = crm;
+        this.codigo_especialidade = codigo_especialidade;
+    }
+
     public Long getCodigo_Medico() {
         return codigo_medico;
     }
