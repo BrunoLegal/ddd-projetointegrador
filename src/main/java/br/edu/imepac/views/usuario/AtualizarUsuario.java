@@ -66,6 +66,7 @@ public class AtualizarUsuario extends BaseForm implements IRolesForms<Usuario> {
         jTable1 = new javax.swing.JTable();
         selecionarButton = new javax.swing.JButton();
         deletarButton1 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -84,7 +85,7 @@ public class AtualizarUsuario extends BaseForm implements IRolesForms<Usuario> {
         jLabel2.setText("Módulos");
 
         jLabel3.setFont(new java.awt.Font("Roboto Condensed", 1, 24)); // NOI18N
-        jLabel3.setText("AtualizarUsuario");
+        jLabel3.setText("Atualizar Usuário");
 
         jLabel4.setText("Especificos");
 
@@ -94,14 +95,14 @@ public class AtualizarUsuario extends BaseForm implements IRolesForms<Usuario> {
             }
         });
 
-        funcionarioCheckBox.setText("Funcionario");
+        funcionarioCheckBox.setText("Funcionário");
         funcionarioCheckBox.setEnabled(false);
 
         jLabel17.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(102, 102, 102));
         jLabel17.setText("Senha");
 
-        usuarioCheckBox.setText("Usuario");
+        usuarioCheckBox.setText("Usuário");
         usuarioCheckBox.setEnabled(false);
         usuarioCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,14 +129,14 @@ public class AtualizarUsuario extends BaseForm implements IRolesForms<Usuario> {
         especialidadeCheckBox.setText("Especialidade");
         especialidadeCheckBox.setEnabled(false);
 
-        medicoCheckBox.setText("Medico");
+        medicoCheckBox.setText("Médico");
         medicoCheckBox.setEnabled(false);
 
         jLabel18.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(102, 102, 102));
         jLabel18.setText("Confirmar Senha");
 
-        convenioCheckBox.setText("Convenio");
+        convenioCheckBox.setText("Convênio");
         convenioCheckBox.setEnabled(false);
 
         agendamentoCheckBox.setText("Agendar Consulta");
@@ -188,6 +189,10 @@ public class AtualizarUsuario extends BaseForm implements IRolesForms<Usuario> {
             }
         });
 
+        jLabel14.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel14.setText("Permissões");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -234,7 +239,8 @@ public class AtualizarUsuario extends BaseForm implements IRolesForms<Usuario> {
                                     .addComponent(agendaCheckBox)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(atendimentoCheckBox))
-                                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel14))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(confirmSenhaField, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -275,12 +281,16 @@ public class AtualizarUsuario extends BaseForm implements IRolesForms<Usuario> {
                             .addComponent(senhaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel18)
+                        .addComponent(jLabel18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel14)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(confirmSenhaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 62, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(adminCheckBox)
                             .addComponent(agendaCheckBox)
@@ -546,6 +556,7 @@ public class AtualizarUsuario extends BaseForm implements IRolesForms<Usuario> {
     private javax.swing.JCheckBox funcionarioCheckBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;

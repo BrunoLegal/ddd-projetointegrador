@@ -103,12 +103,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Atualizar Convenio"/>
+        <Property name="text" type="java.lang.String" value="Atualizar Conv&#xea;nio"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nome do Convenio: "/>
+        <Property name="text" type="java.lang.String" value="Nome do Conv&#xea;nio: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nomeField">

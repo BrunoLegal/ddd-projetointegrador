@@ -107,7 +107,7 @@ public class AtualizarMedico extends BaseForm implements IRolesForms<Medico> {
         }
 
         jLabel2.setFont(new java.awt.Font("Roboto Condensed", 1, 24)); // NOI18N
-        jLabel2.setText("Atualizar Medico");
+        jLabel2.setText("Atualizar Médico");
 
         jLabel4.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
@@ -271,8 +271,8 @@ public class AtualizarMedico extends BaseForm implements IRolesForms<Medico> {
     public Medico createEntityViewRepresentation() {
         return new Medico(
                 Long.parseLong(medicoTable.getValueAt(medicoTable.getSelectedRow(), 0).toString()),
-                medicoTable.getValueAt(medicoTable.getSelectedRow(),1).toString(),
-                medicoTable.getValueAt(medicoTable.getSelectedRow(),2).toString(),
+                nomeMedicoField.getText(),
+                crmField.getText(),
                 Long.parseLong(especialidadeTable.getValueAt(especialidadeTable.getSelectedRow(),0).toString())
         );
     }

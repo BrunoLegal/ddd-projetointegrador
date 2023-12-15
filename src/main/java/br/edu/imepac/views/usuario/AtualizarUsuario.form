@@ -73,6 +73,7 @@
                               </Group>
                               <Component id="jLabel13" alignment="0" max="32767" attributes="0"/>
                           </Group>
+                          <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -119,19 +120,26 @@
                   <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="senhaField" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="confirmSenhaField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="0" pref="62" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="adminCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="agendaCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -199,7 +207,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto Condensed" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="AtualizarUsuario"/>
+        <Property name="text" type="java.lang.String" value="Atualizar Usu&#xe1;rio"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -216,7 +224,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="funcionarioCheckBox">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Funcionario"/>
+        <Property name="text" type="java.lang.String" value="Funcion&#xe1;rio"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -233,7 +241,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="usuarioCheckBox">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Usuario"/>
+        <Property name="text" type="java.lang.String" value="Usu&#xe1;rio"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -281,7 +289,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="medicoCheckBox">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Medico"/>
+        <Property name="text" type="java.lang.String" value="M&#xe9;dico"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -298,7 +306,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="convenioCheckBox">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Convenio"/>
+        <Property name="text" type="java.lang.String" value="Conv&#xea;nio"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -453,6 +461,17 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deletarButton1ActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel14">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Roboto Condensed" size="14" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="66" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Permiss&#xf5;es"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

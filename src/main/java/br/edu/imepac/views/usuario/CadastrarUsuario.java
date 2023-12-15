@@ -67,7 +67,7 @@ public class CadastrarUsuario extends BaseForm implements IRolesForms<Usuario> {
 
         jLabel13.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel13.setText("Nome do Usuário");
+        jLabel13.setText("Login do Usuário");
 
         jButton1.setBackground(new java.awt.Color(51, 153, 255));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,10 +98,10 @@ public class CadastrarUsuario extends BaseForm implements IRolesForms<Usuario> {
 
         atendimentoCheckBox.setText("Atendimento");
 
-        funcionarioCheckBox.setText("Funcionario");
+        funcionarioCheckBox.setText("Funcionário");
         funcionarioCheckBox.setEnabled(false);
 
-        usuarioCheckBox.setText("Usuario");
+        usuarioCheckBox.setText("Usuário");
         usuarioCheckBox.setEnabled(false);
         usuarioCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,10 +115,10 @@ public class CadastrarUsuario extends BaseForm implements IRolesForms<Usuario> {
         especialidadeCheckBox.setText("Especialidade");
         especialidadeCheckBox.setEnabled(false);
 
-        medicoCheckBox.setText("Medico");
+        medicoCheckBox.setText("Médico");
         medicoCheckBox.setEnabled(false);
 
-        convenioCheckBox.setText("Convenio");
+        convenioCheckBox.setText("Convênio");
         convenioCheckBox.setEnabled(false);
 
         agendamentoCheckBox.setText("Agendar Consulta");
@@ -129,7 +129,7 @@ public class CadastrarUsuario extends BaseForm implements IRolesForms<Usuario> {
 
         jLabel14.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel14.setText("Nome do Usuário");
+        jLabel14.setText("Permissões");
 
         jLabel2.setText("Módulos");
 
@@ -145,47 +145,42 @@ public class CadastrarUsuario extends BaseForm implements IRolesForms<Usuario> {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(57, 57, 57))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jSeparator1)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(adminCheckBox)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(agendaCheckBox)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(atendimentoCheckBox)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jSeparator1)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(adminCheckBox)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(agendaCheckBox)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(atendimentoCheckBox)))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(funcionarioCheckBox)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(usuarioCheckBox)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(convenioCheckBox)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(especialidadeCheckBox))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(medicoCheckBox)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(pacienteCheckBox)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(agendamentoCheckBox)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(cancelamentoCheckBox)))
-                                        .addGap(0, 0, Short.MAX_VALUE))))
-                            .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                        .addComponent(funcionarioCheckBox)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(usuarioCheckBox)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(convenioCheckBox)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(especialidadeCheckBox))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(medicoCheckBox)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(pacienteCheckBox)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(agendamentoCheckBox)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cancelamentoCheckBox)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)

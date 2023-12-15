@@ -63,7 +63,7 @@ import java.text.SimpleDateFormat;
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Cadastar Convenio");
+        jLabel1.setText("Cadastar Convênio");
 
         jLabel2.setText("Digite o nome do Convênio:");
 

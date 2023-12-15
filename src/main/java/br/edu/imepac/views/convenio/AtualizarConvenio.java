@@ -106,9 +106,9 @@ public class AtualizarConvenio extends BaseForm implements IRolesForms<Convenio>
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Atualizar Convenio");
+        jLabel1.setText("Atualizar Convênio");
 
-        jLabel2.setText("Nome do Convenio: ");
+        jLabel2.setText("Nome do Convênio: ");
 
         jLabel3.setText("Digite o CNPJ: ");
 

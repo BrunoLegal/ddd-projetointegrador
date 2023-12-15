@@ -213,7 +213,7 @@ public class AtualizarFuncionario extends BaseForm implements IRolesForms<Funcio
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jLabel1.setText("Atualizar Funcionarios");
+        jLabel1.setText("Atualizar Funcionários");
 
         funcionarioTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -250,7 +250,7 @@ public class AtualizarFuncionario extends BaseForm implements IRolesForms<Funcio
 
         jLabel6.setText("Endereço");
 
-        jLabel7.setText("Numero");
+        jLabel7.setText("Número");
 
         jLabel8.setText("Complemento");
 

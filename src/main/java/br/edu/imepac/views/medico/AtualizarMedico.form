@@ -175,7 +175,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto Condensed" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Atualizar Medico"/>
+        <Property name="text" type="java.lang.String" value="Atualizar M&#xe9;dico"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
